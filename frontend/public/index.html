@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hero Section</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <header class="site-header">
+        <a href="/" class="logo" aria-label="Home - RK Design">
+            <svg width="57" height="60" viewBox="0 -7 57 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M31.7749 42C32.1909 42 32.3989 41.792 32.3989 41.376V15.024C32.3989 14.608 32.1909 14.4 31.7749 14.4H9.45487C6.19087 14.4 3.99887 15.072 2.87887 16.416C1.75887 17.728 1.19887 19.392 1.19887 21.408V24.24C1.19887 25.744 1.39087 26.96 1.77487 27.888C2.12687 28.816 2.76687 29.568 3.69487 30.144C4.62287 30.688 5.93487 31.056 7.63087 31.248C8.04687 31.28 8.12687 31.456 7.87087 31.776L0.142874 41.52L-0.00112724 41.808C-0.00112724 41.936 0.126873 42 0.382874 42H3.45487C3.90287 42 4.23887 41.84 4.46287 41.52L12.1909 31.872C12.4149 31.552 12.7509 31.392 13.1989 31.392H28.4149C28.8309 31.392 29.0389 31.6 29.0389 32.016V41.376C29.0389 41.792 29.2469 42 29.6629 42H31.7749ZM11.3749 28.224C8.91087 28.224 7.16687 27.984 6.14287 27.504C5.08687 26.992 4.55887 26.08 4.55887 24.768V21.888C4.55887 20.416 4.92687 19.328 5.66287 18.624C6.36687 17.92 7.79087 17.568 9.93487 17.568H28.4149C28.8309 17.568 29.0389 17.776 29.0389 18.192V27.6C29.0389 28.016 28.8309 28.224 28.4149 28.224H11.3749Z" fill="black"/>
+            <path d="M24.3189 42C23.9029 42 23.6949 41.792 23.6949 41.376V15.024C23.6949 14.608 23.9029 14.4 24.3189 14.4H26.4309C26.8469 14.4 27.0549 14.608 27.0549 15.024V25.632C27.0549 26.048 27.2629 26.256 27.6789 26.256H31.7589C32.1749 26.256 32.5589 26.144 32.9109 25.92L49.5189 14.736C49.8709 14.512 50.2549 14.4 50.6709 14.4H54.9909C55.4069 14.4 55.4389 14.512 55.0869 14.736L36.1749 27.504C35.9829 27.6 35.8869 27.712 35.8869 27.84C35.8869 27.904 35.9829 28.016 36.1749 28.176L55.9989 41.664C56.3509 41.888 56.3189 42 55.9029 42H51.4869C51.0709 42 50.6869 41.888 50.3349 41.664L32.8149 29.76C32.4629 29.536 32.0789 29.424 31.6629 29.424H27.6789C27.2629 29.424 27.0549 29.632 27.0549 30.048V41.376C27.0549 41.792 26.8469 42 26.4309 42H24.3189Z" fill="black"/>
+            </svg>
+        </a>
+
+        <a href="#consultation" class="btn-secondary nav-cta">
+            קביעת שיחת ייעוץ
+        </a>
+
+        <button 
+            class="menu-toggle" 
+            aria-controls="primary-nav" 
+            aria-expanded="false"
+            aria-label="Toggle navigation menu"
+        >
+            <svg class="icon-hamburger" width="28" height="28" viewBox="0 0 125 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid meet">
+                <path d="M6.771,8.159l55.555,0" stroke="currentColor" stroke-width="12.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M6.771,49.826l111.111,0" stroke="currentColor" stroke-width="12.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M62.5,91.493l55.555,0" stroke="currentColor" stroke-width="12.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+
+            <svg class="icon-close" width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M20 6.91L17.09 4L12 9.09L6.91 4L4 6.91L9.09 12L4 17.09L6.91 20L12 14.91L17.09 20L20 17.09L14.91 12L20 6.91Z" fill="currentColor"/>
+            </svg>
+        </button>
+
+        <nav id="primary-nav" class="main-nav">
+            <ul class="nav-list">
+                <li><a href="#home" class="nav-link">בית</a></li>
+                <li><a href="#portfolio" class="nav-link">תיק עבודות</a></li>
+                <li><a href="#pricing" class="nav-link">מחירים</a></li>
+                <li><a href="#about" class="nav-link">קצת עלי</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero-section" aria-labelledby="hero-title">
+            
+            <div class="hero-content">
+                <h1 id="hero-title">
+                    אתר שעובד בשבילך והופך לידים, 
+                    <span class="highlight">ללקוחות משלמים!</span>                
+                </h1>
+                
+                <h4 class="hero-subtitle">
+                    שילוב של עיצוב שבונה סמכות ואמון, ביצועים שגוגל אוהב לקדם ושיווק חכם שמביא לקוחות נכונים.
+                </h4>
+
+                <div class="hero-buttons">
+                    <a href="#consultation" class="btn-primary">
+                        קביעת שיחת ייעוץ
+                    </a>
+
+                    <a href="#portfolio" class="btn-secondary-outline">
+                        צפייה בתיק העבודות
+                    </a>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <picture>
+                    <source 
+                        media="(min-width: 744px)" 
+                        type="image/avif"
+                        srcset="../assets/img/avif/tablet_hero_img.avif"
+                        width="1488"
+                        height="1138"
+                    >
+                    
+                    <img 
+                        src="../assets/img/avif/hero_img_mobile.avif" 
+                        alt="Smiling woman holding a laptop showing business growth" 
+                        class="hero-img"
+                        width="780"
+                        height="630"
+                        loading="eager" 
+                        fetchpriority="high"
+                    >
+                </picture>
+
+                <div class="bubble stats-bubble">
+                    <span class="bubble-title">צפיות בפרופיל העסקי</span>
+                    
+                    <div class="stats-bar"></div>
+                    
+                    <div class="stats-number">
+                        <span id="view-count">0</span> 
+                        
+                        <span class="stats-growth">
+                            (+<span id="percent-count">0</span>%)
+                        </span>
+                    </div>
+                </div>
+
+                <div class="whatsapp-bubble bubble">
+                    <div class="badge-container">
+                        <div class="badge-glow"></div>
+                        <div class="notification-badge">0</div>
+                    </div>
+                    <div class="whatsapp-text">
+                        <strong id="leads-count">0 פניות</strong> הועברו לווצאפ
+                    </div>
+                </div>
+
+                <div class="bubble performance-bubble">
+                    <span class="bubble-title">ביצועי אתר: <strong>מקסימליים</strong></span>
+                    
+                    <div class="gauges-row">
+                        <div class="gauge-item">
+                            <div class="gauge-circle">0</div>
+                            <span class="gauge-label">Performance</span>
+                        </div>
+                        <div class="gauge-item">
+                            <div class="gauge-circle">0</div>
+                            <span class="gauge-label">Accessibility</span>
+                        </div>
+                        <div class="gauge-item">
+                            <div class="gauge-circle">0</div>
+                            <span class="gauge-label">SEO</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <section class="services-section">
+        <div class="container">
+            <div class="sticky-header-wrapper">
+                <h2 class="section-title">
+                    נכס דיגיטלי שחוסך לכם<br>
+                    זמן ומגדיל רווחיות
+                </h2>
+                <div class="progress-track">
+                    <div class="progress-fill" id="card-progress"></div>
+                </div>
+            </div>
+            <article class="service-card" style="--i:1;">
+                <svg 
+                class="card-bg-shape"
+                width="297" 
+                height="598" 
+                viewBox="0 0 297 598" 
+                fill="none" 
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+                focusable="false"
+                >
+                <path d="M379.521 774.963C359.703 786.367 335.306 786.332 315.521 774.871L31.9194 610.591C12.1342 599.131 -0.0338948 577.985 -0.00112582 555.12L0.468584 227.374C0.501353 204.509 12.7299 183.399 32.548 171.995L316.619 8.52854C336.437 -2.87556 360.834 -2.84061 380.619 8.62025L664.22 172.9C684.005 184.361 696.173 205.506 696.141 228.371L695.671 556.117C695.638 578.982 683.41 600.093 663.592 611.497L379.521 774.963Z" fill="url(#paint0_linear_454_1852)" fill-opacity="0.84"/>
+                <defs>
+                    <linearGradient id="paint0_linear_454_1852" x1="308.58" y1="856.388" x2="308.58" y2="0.929695" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#FDFCFF"/>
+                        <stop offset="0.293269" stop-color="#FDFCFF"/>
+                        <stop offset="0.8125" stop-color="#E8E4FA"/>
+                    </linearGradient>
+                </defs>
+                </svg>
+                
+                <div class="card-visual img-res-1">
+                    <img 
+                    src="../assets/img/avif/local_search.avif" 
+                    alt="בטלפון חכם מוצג דירוג גבוהה בתוצאוות חיפוש מקומי בגוגל מפוות ביחד עם דירווג של חמישה כוכבים" 
+                    class="card-img"
+                    width="534" 
+                    height="440" 
+                    loading="lazy"
+                    >
+                </div>
+                    <div class="card-content">
+                    <h3 class="card-title">
+                        להופיע בראש התוצאות<br>
+                        במפה של גוגל
+                    </h3>
+
+                    <ul class="benefits-list" role="list">
+                        <li class="benefit-item">
+                            <span class="check-icon" aria-hidden="true">
+                                <svg width="18" height="14" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M16.3333 1L5.99996 11.3333L1.66663 7" stroke="#9F62FE" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </span>
+                            <p class="benefit-text">יצירת אחידות בפרטי העסק מול גוגל לבניית סמכות ואמינות</p>
+                        </li>
+
+                        <li class="benefit-item">
+                            <span class="check-icon" aria-hidden="true">
+                                <svg width="18" height="14" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M16.3333 1L5.99996 11.3333L1.66663 7" stroke="#9F62FE" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </span>
+                            <p class="benefit-text">הצגת העסק כפתרון המדויק למי שמחפש מומחה</p>
+                        </li>
+
+                        <li class="benefit-item">
+                            <span class="check-icon" aria-hidden="true">
+                                <svg width="18" height="14" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M16.3333 1L5.99996 11.3333L1.66663 7" stroke="#9F62FE" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </span>
+                            <p class="benefit-text">הנגשת השירותים באתר לסריקה מהירה והופעה מדויקת בחיפוש</p>
+                        </li>
+                    </ul>
+                </div>
+            </article>
+            
+            <article class="service-card" style="--i:2;"> 
+                <svg 
+                class="card-bg-shape"
+                width="297" 
+                height="598" 
+                viewBox="0 0 297 598" 
+                fill="none" 
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+                focusable="false"
+                >
+                <path d="M379.521 774.963C359.703 786.367 335.306 786.332 315.521 774.871L31.9194 610.591C12.1342 599.131 -0.0338948 577.985 -0.00112582 555.12L0.468584 227.374C0.501353 204.509 12.7299 183.399 32.548 171.995L316.619 8.52854C336.437 -2.87556 360.834 -2.84061 380.619 8.62025L664.22 172.9C684.005 184.361 696.173 205.506 696.141 228.371L695.671 556.117C695.638 578.982 683.41 600.093 663.592 611.497L379.521 774.963Z" fill="url(#paint0_linear_454_1852)" fill-opacity="0.84"/>
+                <defs>
+                    <linearGradient id="paint0_linear_454_1852" x1="308.58" y1="856.388" x2="308.58" y2="0.929695" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#FDFCFF"/>
+                        <stop offset="0.293269" stop-color="#FDFCFF"/>
+                        <stop offset="0.8125" stop-color="#E8E4FA"/>
+                    </linearGradient>
+                </defs>
+                </svg>
+                <div class="card-visual img-res-2">
+                    <img 
+                    src="../assets/img/avif/websie_design.avif" 
+                    alt="אילוסטרציה של עיצוב ובניית אתר אינטרנט מודרני ומקצועי"
+                    class="card-img"
+                    width="615" 
+                    height="431" 
+                    loading="lazy"
+                    >
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">
+                        
+                        בניית אמון וסמכות עוד<br>
+                        לפני השיחה הראשונה
+                    </h3>
+
+                    <ul class="benefits-list" role="list">
+                        <li class="benefit-item">
+                            <span class="check-icon" aria-hidden="true">
+                                <svg width="18" height="14" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M16.3333 1L5.99996 11.3333L1.66663 7" stroke="#9F62FE" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </span>
+                            <p class="benefit-text">עיצוב נקי שמשדר את המקצועיות והסטנדרטים שלכם</p>
+                        </li>
+
+                        <li class="benefit-item">
+                            <span class="check-icon" aria-hidden="true">
+                                <svg width="18" height="14" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M16.3333 1L5.99996 11.3333L1.66663 7" stroke="#9F62FE" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </span>
+                            <p class="benefit-text">יצירת מסע שמוביל את הלקוח לגלות את הערך שלכם וליצור קשר</p>
+                        </li>
+
+                        <li class="benefit-item">
+                            <span class="check-icon" aria-hidden="true">
+                                <svg width="18" height="14" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M16.3333 1L5.99996 11.3333L1.66663 7" stroke="#9F62FE" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </span>
+                            <p class="benefit-text">כתיבה המדברת לצרכי הלקוח ומחברת אותו לפתרון שלכם</p>
+                        </li>
+                    </ul>
+                </div>
+            </article>
+
+            <article class="service-card" style="--i:3;"> 
+                 <svg 
+                class="card-bg-shape"
+                width="297" 
+                height="598" 
+                viewBox="0 0 297 598" 
+                fill="none" 
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+                focusable="false"
+                >
+                <path d="M379.521 774.963C359.703 786.367 335.306 786.332 315.521 774.871L31.9194 610.591C12.1342 599.131 -0.0338948 577.985 -0.00112582 555.12L0.468584 227.374C0.501353 204.509 12.7299 183.399 32.548 171.995L316.619 8.52854C336.437 -2.87556 360.834 -2.84061 380.619 8.62025L664.22 172.9C684.005 184.361 696.173 205.506 696.141 228.371L695.671 556.117C695.638 578.982 683.41 600.093 663.592 611.497L379.521 774.963Z" fill="url(#paint0_linear_454_1852)" fill-opacity="0.84"/>
+                <defs>
+                    <linearGradient id="paint0_linear_454_1852" x1="308.58" y1="856.388" x2="308.58" y2="0.929695" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#FDFCFF"/>
+                        <stop offset="0.293269" stop-color="#FDFCFF"/>
+                        <stop offset="0.8125" stop-color="#E8E4FA"/>
+                    </linearGradient>
+                </defs>
+                </svg>
+                <div class="card-visual img-res-3">
+                    <img 
+                    src="../assets/img/avif/website_integrations.avif" 
+                    alt="אילוסטרציה של אתר המחובר למערכות ניהול, יומנים ווצאפ"
+                    class="card-img"
+                    width="645" 
+                    height="434" 
+                    loading="lazy"
+                    >
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">
+                        חיבור האתר לכלים <br>
+                        שמנהלים לכם את העסק
+                    </h3>
+
+                    <ul class="benefits-list" role="list">
+                        <li class="benefit-item">
+                            <span class="check-icon" aria-hidden="true">
+                                <svg width="18" height="14" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M16.3333 1L5.99996 11.3333L1.66663 7" stroke="#9F62FE" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </span>
+                            <p class="benefit-text">חיבור לוואטסאפ ויומנים לניהול לקוחות פשוט וחכם</p>
+                        </li>
+
+                        <li class="benefit-item">
+                            <span class="check-icon" aria-hidden="true">
+                                <svg width="18" height="14" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M16.3333 1L5.99996 11.3333L1.66663 7" stroke="#9F62FE" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </span>
+                            <p class="benefit-text">אוטומציה של חשבוניות וסליקה לחיסכון בזמן עבודה ידני</p>
+                        </li>
+
+                        <li class="benefit-item">
+                            <span class="check-icon" aria-hidden="true">
+                                <svg width="18" height="14" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M16.3333 1L5.99996 11.3333L1.66663 7" stroke="#9F62FE" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </span>
+                            <p class="benefit-text">שילוב כלי ניתוח למעקב אחר פעילות גולשים ושיפור האתר</p>
+                        </li>
+                    </ul>
+                </div>
+            </article>
+
+           <article class="service-card" style="--i:4;"> 
+             <svg 
+                class="card-bg-shape"
+                width="297" 
+                height="598" 
+                viewBox="0 0 297 598" 
+                fill="none" 
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+                focusable="false"
+                >
+                <path d="M379.521 774.963C359.703 786.367 335.306 786.332 315.521 774.871L31.9194 610.591C12.1342 599.131 -0.0338948 577.985 -0.00112582 555.12L0.468584 227.374C0.501353 204.509 12.7299 183.399 32.548 171.995L316.619 8.52854C336.437 -2.87556 360.834 -2.84061 380.619 8.62025L664.22 172.9C684.005 184.361 696.173 205.506 696.141 228.371L695.671 556.117C695.638 578.982 683.41 600.093 663.592 611.497L379.521 774.963Z" fill="url(#paint0_linear_454_1852)" fill-opacity="0.84"/>
+                <defs>
+                    <linearGradient id="paint0_linear_454_1852" x1="308.58" y1="856.388" x2="308.58" y2="0.929695" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#FDFCFF"/>
+                        <stop offset="0.293269" stop-color="#FDFCFF"/>
+                        <stop offset="0.8125" stop-color="#E8E4FA"/>
+                    </linearGradient>
+                </defs>
+                </svg>   
+                <div class="card-visual img-res-4">
+                    <img 
+                    src="../assets/img/avif/high_peformance_website.avif" 
+                    alt="גרף ביצועים המציג מהירות טעינה גבוהה וציון ירוק בבדיקת ביצוועים של גוגל"
+                    class="card-img"
+                    width="501" 
+                    height="406" 
+                    loading="lazy"
+                    >
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">
+                       פיתוח מקצועי לביצועים<br>
+                        מקסימליים
+                    </h3>
+
+                    <ul class="benefits-list" role="list">
+                        <li class="benefit-item">
+                            <span class="check-icon" aria-hidden="true">
+                                <svg width="18" height="14" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M16.3333 1L5.99996 11.3333L1.66663 7" stroke="#9F62FE" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </span>
+                            <p class="benefit-text">טעינה  וזמני תגובה מהירים בכל חלקי האתר</p>
+                        </li>
+
+                        <li class="benefit-item">
+                            <span class="check-icon" aria-hidden="true">
+                                <svg width="18" height="14" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M16.3333 1L5.99996 11.3333L1.66663 7" stroke="#9F62FE" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </span>
+                            <p class="benefit-text">התאמה מלאה של האתר לכל סוגי המסכים והניידים</p>
+                        </li>
+
+                        <li class="benefit-item">
+                            <span class="check-icon" aria-hidden="true">
+                                <svg width="18" height="14" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M16.3333 1L5.99996 11.3333L1.66663 7" stroke="#9F62FE" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </span>
+                            <p class="benefit-text">ציון גבוה במבחני הביצועים של גוגל להגדלת החשיפה</p>
+                        </li>
+                    </ul>
+                </div>
+           </article>
+           <div class="ghost-card"></div>
+        </div>
+    </section>
+
+    <section class="portfolio-section" id="portfolio" aria-labelledby="portfolio-title">
+    
+        <img src="../assets/svg/outlined_hexagon.svg" alt="" class="shape-hex-outline" aria-hidden="true" width="100" height="100" loading="lazy">
+        <img src="../assets/svg/trasnparent_hexagon.svg" alt="" class="shape-hex-bg" aria-hidden="true" width="300" height="300" loading="lazy">
+
+        <div class="container">
+            
+            <header class="portfolio-header">
+                <h2 id="portfolio-title" class="section-title">
+                    תוצאות מהשטח לעסקים אמיתיים<br>
+                
+                </h2>
+                <img src="../assets/svg/small_hexagon.svg" alt="" class="shape-hex-small" aria-hidden="true" width="40" height="40" loading="lazy">
+            </header>
+
+            <article class="case-study-card">
+
+                <img src="../assets/svg/phexagon-left-side.svg" 
+                    alt="" 
+                    class="shape-hex-left" 
+                    aria-hidden="true" 
+                    loading="lazy">
+                
+                <div class="mockup-composite">
+                    <div class="device-desktop">
+                        <img src="../assets/img/avif/desktop.avif" 
+                            alt="תצוגת דסקטופ של אתר אלונה שמואל" 
+                            width="652" height="515" 
+                            loading="lazy">
+                    </div>
+                    
+                    <div class="device-phone">
+                        <img src="../assets/img/avif/phone.avif" 
+                            alt="תצוגת מובייל של האתר" 
+                            width="118" height="237" 
+                            loading="lazy">
+                    </div>
+
+                    <div class="device-tablet">
+                        <img src="../assets/img/avif/tablet.avif" 
+                            alt="תצוגת טאבלט של האתר" 
+                            width="225" height="320" 
+                            loading="lazy">
+                    </div>
+                </div>
+
+                <div class="case-content">
+                    <h3 class="case-client">אלונה שמואל</h3>
+                    <p class="case-role">אתר תדמית לפדיקוריסטית רפואית </p>
+                    
+                    <p class="case-description">
+                        האתר מעוצב בקו נקי ומינימליסטי המדגיש את הסטנדרט הרפואי והבידול המקצועי של אלונה מול המתחרים. הוא נבנה כהרחבה אסטרטגית של הפרופיל העסקי בגוגל כדי לבסס לגיטימיות וסמכות, למקסם חשיפה בחיפוש וב-AI, ולייצר זרם פניות מדויק לעסק.
+                    </p>
+
+                    <a href="https://alonashmuel.com/" target="_blank" class="btn-primary btn-cta" aria-label="מעבר לאתר החי של אלונה שמואל">
+                        <svg width="20" height="14" viewBox="0 0 20 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M7.16895 0.250977C7.51168 0.261629 7.81656 0.375652 8.07617 0.588867L8.18457 0.685547L8.19238 0.693359C8.45108 0.96958 8.59011 1.29946 8.60254 1.67285C8.61538 2.05963 8.46872 2.39749 8.18359 2.67578L5.22559 5.57324H17.9033C18.3023 5.57333 18.6495 5.70813 18.9277 5.98047C19.2063 6.25318 19.3457 6.59532 19.3447 6.99023C19.3438 7.3845 19.2039 7.72684 18.9268 8C18.6493 8.27327 18.3023 8.40676 17.9033 8.40527V8.40625H5.22559L8.18457 11.3027C8.46879 11.581 8.61438 11.9193 8.60254 12.3057C8.59107 12.6796 8.45117 13.0098 8.19141 13.2861L8.18457 13.293C7.90238 13.5692 7.5601 13.7173 7.16895 13.7295C6.77187 13.7418 6.42237 13.6028 6.13574 13.3223L0.682617 7.98535C0.400025 7.70876 0.25 7.37281 0.25 6.98926C0.250097 6.60586 0.400116 6.27064 0.682617 5.99414L6.13574 0.657227C6.42189 0.377155 6.77153 0.238733 7.16895 0.250977Z" fill="#FCFCFF" stroke="#FCFCFF" stroke-width="0.5"/>
+                         </svg>
+                        מעבר לאתר החי
+                    </a>
+                </div>
+
+            </article>
+        </div>
+    </section>
+
+    <!-- <section class="cta-section" aria-labelledby="cta-title">
+        <div class="cta-container">
+        
+        <h2 id="cta-title" class="cta-title">
+           סקרנים לגלות איך אני יכולה לבנות לכם נכס דיגיטלי שגוגל יאהב להציג בראש התוצאות?
+        </h2>
+
+        <a href="#contact" class="btn-primary btn-cta" aria-label="מעבר ליצירת קשר לבניית נכס דיגיטלי">
+            <svg width="20" height="14" viewBox="0 0 20 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M7.16895 0.250977C7.51168 0.261629 7.81656 0.375652 8.07617 0.588867L8.18457 0.685547L8.19238 0.693359C8.45108 0.96958 8.59011 1.29946 8.60254 1.67285C8.61538 2.05963 8.46872 2.39749 8.18359 2.67578L5.22559 5.57324H17.9033C18.3023 5.57333 18.6495 5.70813 18.9277 5.98047C19.2063 6.25318 19.3457 6.59532 19.3447 6.99023C19.3438 7.3845 19.2039 7.72684 18.9268 8C18.6493 8.27327 18.3023 8.40676 17.9033 8.40527V8.40625H5.22559L8.18457 11.3027C8.46879 11.581 8.61438 11.9193 8.60254 12.3057C8.59107 12.6796 8.45117 13.0098 8.19141 13.2861L8.18457 13.293C7.90238 13.5692 7.5601 13.7173 7.16895 13.7295C6.77187 13.7418 6.42237 13.6028 6.13574 13.3223L0.682617 7.98535C0.400025 7.70876 0.25 7.37281 0.25 6.98926C0.250097 6.60586 0.400116 6.27064 0.682617 5.99414L6.13574 0.657227C6.42189 0.377155 6.77153 0.238733 7.16895 0.250977Z" fill="#FCFCFF" stroke="#FCFCFF" stroke-width="0.5"/>
+            </svg>
+            אני רוצה שתבני לי נכס דגיטלי
+        </a>
+
+        </div>
+    </section> -->
+
+    <section class="about-section" id="about" aria-labelledby="about-title">
+        
+        <img src="../assets/svg/above_head_transparent_shape.svg" alt="" aria-hidden="true" class="shape-hex-top" loading="lazy">
+        <img src="../assets/svg/behind_arm_shape.svg" alt="" aria-hidden="true" class="shape-hex-bottom" loading="lazy">
+        <img src="../assets/svg/near_title_shape_filled.svg" alt="" aria-hidden="true" class="shape-hex-mid" loading="lazy">
+
+        <div class="container about-container">
+            
+            <div class="about-visuals">
+                <img src="../assets/svg/above_head.svg" alt="" aria-hidden="true" class="shape-above-head" loading="lazy">
+                
+               <picture>
+                    <source 
+                        media="(min-width: 744px)" 
+                        type="image/avif"
+                        srcset="../assets/img/avif/about_me_tablet.avif"
+                        width="770"
+                        height="1570"
+                    >
+                    
+                    <img 
+                        src="../assets/img/avif/about_me_img.avif" 
+                        alt="רות לוין - מפתחת אתרים ומומחית לאוטומציה עסקית" 
+                        class="about-img" 
+                        width="1519" 
+                        height="1497" 
+                        loading="lazy"
+                    >
+                </picture>
+            </div>
+
+            <div class="about-content">
+                <span class="bg-text-giant" aria-hidden="true">קצת עלי</span>
+                
+                <img src="../assets/svg/above_title.svg" alt="" aria-hidden="true" class="shape-above-title" loading="lazy">
+                
+                <h2 id="about-title" class="about-title">נעים להכיר, אני רות לוין.</h2>
+                
+                <div class="about-text">
+                    <p>
+                        כבעלת עסק, אני מבינה שהמדד האמיתי להצלחה הוא השורה התחתונה: <strong>לידים וצמיחה.</strong>
+                    </p>
+                    <p>
+                        המון עסקים מצוינים נתקעים ב״תקרת זכוכית״, פשוט כי האתר שלהם פשוט באוויר, ואין להם מערכות או כלים אסטרטגיים שבאמת עובדים עבורם.
+                    </p>
+                    <p>
+                        התשוקה שלי היא לרתום את הטכנולוגיה והשיווק כדי לבנות נכס דיגיטלי שיעבוד עבור העסק שלכם 24/7 ויחסוך לכם זמן יקר בניהול השוטף, <strong>כדי שתוכלו להתפנות למה שבאמת חשוב!</strong>
+                    </p>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    
+<section class="pricing-section" id="pricing" aria-labelledby="pricing-title">    
+    <div class="pricing-container">
+        
+        <div class="pricing-sticky-group">
+            <img src="../assets/svg/pricing_hexagon.svg" alt="" aria-hidden="true" class="bg-shape-pricing" loading="lazy">
+            <div class="pricing-header">
+                <h2 id="pricing-title" class="pricing-title">מחירים</h2>
+                <p class="pricing-subtitle">מסלולים גמישים שנועדו להתאים בדיוק לצרכים שלכם ולשלב שבו העסק נמצא.</p>
+            </div>
+        </div>
+
+        <div class="pricing-scroll-track">
+            <div class="pricing-cards-stack">
+                
+                <div class="pricing-card card-kickstart" id="card-1">
+                    <h3 class="plan-name">KICKSTART</h3>
+                    <p class="plan-desc">כל מה שעסק צריך כדי להתחיל ברגל ימין</p>
+                    <div class="plan-price">1,800 ש״ח לפרוייקט</div>
+                    <p class="plan-includes-title">מה המחיר כולל?</p>
+                    <ul class="plan-features" aria-label="פירוט חבילת קיקסטארט">
+                        <li>
+                            <span aria-hidden="true" class=""><svg width="15" height="13" viewBox="0 0 15 13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.2053 1.2998L4.86939 10.8265L1.29688 7.254" stroke="#090231" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                            אתר במבנה 5 מקטעים
+                        </li>
+                        <li>
+                            <span aria-hidden="true" class=""><svg width="15" height="13" viewBox="0 0 15 13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.2053 1.2998L4.86939 10.8265L1.29688 7.254" stroke="#090231" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                            עיצוב נקי ומקצועי המותאם למותג
+                        </li>
+                        <li>
+                            <span aria-hidden="true" class=""><svg width="15" height="13" viewBox="0 0 15 13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.2053 1.2998L4.86939 10.8265L1.29688 7.254" stroke="#090231" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                            התאמה מלאה למובייל וטאבלט
+                        </li>
+                        <li>
+                            <span aria-hidden="true" class=""><svg width="15" height="13" viewBox="0 0 15 13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.2053 1.2998L4.86939 10.8265L1.29688 7.254" stroke="#090231" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                            כפתור וואטסאפ וטופס לידים
+                        </li>
+                        <li>
+                            <span aria-hidden="true" class=""><svg width="15" height="13" viewBox="0 0 15 13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.2053 1.2998L4.86939 10.8265L1.29688 7.254" stroke="#090231" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                            אבטחה (SSL) ונגישות כסטנדרט
+                        </li>
+                        <li>
+                            <span aria-hidden="true" class=""><svg width="15" height="13" viewBox="0 0 15 13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.2053 1.2998L4.86939 10.8265L1.29688 7.254" stroke="#090231" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                            טעינה מהירה וחוויית גלישה
+                        </li>
+                        <li>
+                            <span aria-hidden="true"><svg width="15" height="13" viewBox="0 0 15 13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.2053 1.2998L4.86939 10.8265L1.29688 7.254" stroke="#090231" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                            ליווי בחיבור דומיין ואחסון
+                        </li>
+                    </ul>
+                    <a href="#contact" class="btn-plan" aria-label="בחירת מסלול קיקסטארט">
+                        <span aria-hidden="true">←</span> בואו נצא לדרך
+                    </a>
+                </div>
+                
+                <div class="pricing-card card-pro" id="card-2">
+                    <h3 class="plan-name">Business PRO</h3>
+                    <p class="plan-desc">עיצוב וחווית משתמש פרימיום</p>
+                    <div class="plan-price">4,200 ש״ח לפרוייקט</div>
+                    <p class="plan-includes-title">כל מה שבחבילת Kickstart , פלוס:</p>
+                    <ul class="plan-features" aria-label="פירוט חבילת קיקסטארט">
+                        <li>
+                            <span aria-hidden="true" class=""><svg width="15" height="13" viewBox="0 0 15 13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.2053 1.2998L4.86939 10.8265L1.29688 7.254" stroke="#090231" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                            אתר במבנה 5 מקטעים
+                        </li>
+                        <li>
+                            <span aria-hidden="true" class=""><svg width="15" height="13" viewBox="0 0 15 13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.2053 1.2998L4.86939 10.8265L1.29688 7.254" stroke="#090231" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                            עיצוב נקי ומקצועי המותאם למותג
+                        </li>
+                        <li>
+                            <span aria-hidden="true" class=""><svg width="15" height="13" viewBox="0 0 15 13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.2053 1.2998L4.86939 10.8265L1.29688 7.254" stroke="#090231" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                            התאמה מלאה למובייל וטאבלט
+                        </li>
+                        <li>
+                            <span aria-hidden="true" class=""><svg width="15" height="13" viewBox="0 0 15 13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.2053 1.2998L4.86939 10.8265L1.29688 7.254" stroke="#090231" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                            כפתור וואטסאפ וטופס לידים
+                        </li>
+                        <li>
+                            <span aria-hidden="true" class=""><svg width="15" height="13" viewBox="0 0 15 13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.2053 1.2998L4.86939 10.8265L1.29688 7.254" stroke="#090231" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                            אבטחה (SSL) ונגישות כסטנדרט
+                        </li>
+                        <li>
+                            <span aria-hidden="true" class=""><svg width="15" height="13" viewBox="0 0 15 13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.2053 1.2998L4.86939 10.8265L1.29688 7.254" stroke="#090231" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                            טעינה מהירה וחוויית גלישה
+                        </li>
+                        <li>
+                            <span aria-hidden="true"><svg width="15" height="13" viewBox="0 0 15 13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.2053 1.2998L4.86939 10.8265L1.29688 7.254" stroke="#090231" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                            ליווי בחיבור דומיין ואחסון
+                        </li>
+                    </ul>
+                    <a href="#contact" class="btn-plan" aria-label="בחירת מסלול קיקסטארט">
+                        <span aria-hidden="true">←</span> בואו נצא לדרך
+                    </a>
+                </div>
+                
+                <div class="pricing-card card-ultimate" id="card-3">
+                    <h3 class="plan-name">ULTIAMATE</h3>
+                    <p class="plan-desc">כל מה שעסק צריך כדי להתחיל ברגל ימין</p>
+                    <div class="plan-price">6,500 ש״ח לפרוייקט</div>
+                    <p class="plan-includes-title">כל חבילת Business PRO, פלוס: </p>
+                    <ul class="plan-features" aria-label="פירוט חבילת קיקסטארט">
+                        <li>
+                            <span aria-hidden="true" class=""><svg width="15" height="13" viewBox="0 0 15 13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.2053 1.2998L4.86939 10.8265L1.29688 7.254" stroke="#090231" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                            אתר במבנה 5 מקטעים
+                        </li>
+                        <li>
+                            <span aria-hidden="true" class=""><svg width="15" height="13" viewBox="0 0 15 13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.2053 1.2998L4.86939 10.8265L1.29688 7.254" stroke="#090231" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                            עיצוב נקי ומקצועי המותאם למותג
+                        </li>
+                        <li>
+                            <span aria-hidden="true" class=""><svg width="15" height="13" viewBox="0 0 15 13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.2053 1.2998L4.86939 10.8265L1.29688 7.254" stroke="#090231" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                            התאמה מלאה למובייל וטאבלט
+                        </li>
+                        <li>
+                            <span aria-hidden="true" class=""><svg width="15" height="13" viewBox="0 0 15 13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.2053 1.2998L4.86939 10.8265L1.29688 7.254" stroke="#090231" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                            כפתור וואטסאפ וטופס לידים
+                        </li>
+                        <li>
+                            <span aria-hidden="true" class=""><svg width="15" height="13" viewBox="0 0 15 13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.2053 1.2998L4.86939 10.8265L1.29688 7.254" stroke="#090231" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                            אבטחה (SSL) ונגישות כסטנדרט
+                        </li>
+                        <li>
+                            <span aria-hidden="true" class=""><svg width="15" height="13" viewBox="0 0 15 13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.2053 1.2998L4.86939 10.8265L1.29688 7.254" stroke="#090231" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                            טעינה מהירה וחוויית גלישה
+                        </li>
+                        <li>
+                            <span aria-hidden="true"><svg width="15" height="13" viewBox="0 0 15 13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.2053 1.2998L4.86939 10.8265L1.29688 7.254" stroke="#090231" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                            ליווי בחיבור דומיין ואחסון
+                        </li>
+                    </ul>
+                    <a href="#contact" class="btn-plan" aria-label="בחירת מסלול קיקסטארט">
+                        <span aria-hidden="true">←</span> בואו נצא לדרך
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<script src="./script.js"></script>
+</body>
+</html>

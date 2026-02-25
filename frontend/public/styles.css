@@ -1,0 +1,2204 @@
+/*Use a more-intuitive box-sizing model */
+*, *::before, *::after { box-sizing: border-box; }
+
+/* Remove default margin */
+*:not(dialog) { margin: 0; }
+
+/* Inherit fonts for form controls */
+input, button, textarea, select { font: inherit; }
+
+/*Avoid text overflows */
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+html { font-size: 10px; }
+
+
+:root {
+    --main-color: #FDFDFE;     /* Background color from design */
+    --secondary-color: #4C0EF5;
+    --txt-color: #0F0231;
+    --txt-body: #4A4A68;       /* Added missing body text color */
+    --cta-color: #F7F5FF;
+    --cta-radius-s: 1rem;
+    --cta-radius: 1.2rem;
+    
+    /* Font Sizes : Smartphones*/
+    --fs-h1-mobile: clamp(3.2rem, -0.4rem + 10vw,3.5rem);
+    --fs-h2-mobile: clamp(2.6rem, -1.00rem + 10.00vw, 2.9rem);
+    --fs-h3-mobile: clamp(2.2rem, -0.20rem + 6.67vw, 2.4rem);
+    --fs-h4-mobile: clamp(2rem, -0.4rem + 6.67vw, 2.2rem);
+    --fs-p-mobile:clamp(1.6rem, -0.8rem + 6.67vw, 1.8rem);
+
+    /* Font Sizes : Tablets*/
+    --fs-h1-tablet: clamp(4.8rem, 4.20rem + 0.78vw, 5rem);
+    --fs-h2-tablet: 3.6rem;
+    --fs-h3-tablet: 2.6rem;
+    --fs-h4-tablet: 2.2rem;
+    --fs-p-tablet: 1.7rem;
+    
+    /* Spacing */
+    --margin-inline-mobile: 2rem;
+    --margin-inline-tablet: 4rem;
+    --margin-block-mobile: 1.6rem;
+    --space-18: 1.8rem;
+    --space-20: 2rem;
+    --space-22: 2.2rem;
+    --space-24: 2.4rem;
+    --space-26: 2.6rem;
+    --space-28: 2.8rem;
+    --space-30: 3rem;
+    --space-32: 3.2rem;
+    --space-34: 3.4rem;
+    --space-36: 3.6rem;
+    --space-40: 4rem;
+    --space-44: 4.4rem;
+    --space-48: 4.8rem;
+    --space-52: 5.2rem;
+    --space-56: 5.6rem;
+    --space-60: 6rem;
+    --space-64: 6.4rem;
+    --space-68: 6.8rem;
+    --space-72: 7.2rem;
+    --space-80: 8rem;
+    --space-96: 9.6rem;
+    --space-104: 10.4rem;
+    --space-120: 12rem;
+    
+    /* Effects & Colors */
+    --shadow-card: 0 10px 30px rgba(76, 14, 245, 0.1);
+    --success-green: #3AAA5E;
+    --bubble-bg: rgba(251, 250, 255, 0.76);
+    --bubble-shadow: 0.1rem 0.4rem 1.15rem rgba(0, 0, 0, 0.06); 
+    --badge-purple: #6749FD; 
+}
+
+h1 { font-size: var(--fs-h1); }
+h2 { font-size: var(--fs-h2); }
+h3 { font-size: var(--fs-h3); }
+h4 { font-size: var(--fs-h4); }
+p, a { font-size: var(--fs-p); }
+
+/* --- Fonts --- */
+/* Regular Weight (400) */
+@font-face {
+    font-family: 'TelAviv-Modernist';
+    src: url('../assets/fonts/TelAviv-ModernistRegular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Bold Weight (700) */
+@font-face {
+    font-family: 'TelAviv-Modernist';
+    src: url('../assets/fonts/TelAviv-ModernistBold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'TelAviv-Brutalist-Bold'; /* We gave it a unique name */
+    src: url('../assets/fonts/TelAviv-BrutalistBold.woff2') format('woff2');
+    font-weight: bold; /* Tell the browser not to mess with the math */
+    font-style: bold;
+}
+
+/* Heebo Fonts */
+@font-face { font-family: 'Heebo'; font-style: normal; font-weight: 300; src: url('../assets/fonts/heebo-v28-hebrew_latin-300.woff2') format('woff2'); font-display: swap; }
+@font-face { font-family: 'Heebo'; font-style: normal; font-weight: 400; src: url('../assets/fonts/heebo-v28-hebrew_latin-regular.woff2') format('woff2'); font-display: swap; }
+@font-face { font-family: 'Heebo'; font-style: normal; font-weight: 500; src: url('../assets/fonts/heebo-v28-hebrew_latin-500.woff2') format('woff2'); font-display: swap; }
+@font-face { font-family: 'Heebo'; font-style: normal; font-weight: 600; src: url('../assets/fonts/heebo-v28-hebrew_latin-600.woff2') format('woff2'); font-display: swap; }
+@font-face { font-family: 'Heebo'; font-style: normal; font-weight: 700; src: url('../assets/fonts/heebo-v28-hebrew_latin-700.woff2') format('woff2'); font-display: swap; }
+
+/* --- Body --- */
+body {
+    overflow-x: hidden;
+    width: 100%;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    background-color: var(--main-color);
+    color: var(--txt-color);
+    font-family: 'TelAviv-Modernist', sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+img { 
+  max-width: 100%; 
+  display: block; 
+  height: auto; 
+}
+ 
+
+
+
+/* =======================
+   HEADER & NAVIGATION
+==========================*/
+.site-header {
+    display: flex;
+    flex-direction: row-reverse; 
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    border-radius: 1.2rem;
+    padding-inline: 0.8rem;
+    width: 95%;
+
+    /* Sticky Positioning */
+    position: sticky;
+    position: -webkit-sticky; /* Essential for Safari */
+    top: 0;
+    z-index: 100;
+
+    /* Visuals */
+    background-color: rgba(252, 252, 255, 0.72);
+    backdrop-filter: blur(42.8px);
+    -webkit-backdrop-filter: blur(42.8px);
+
+}
+
+/* Secondary Button (Header) */
+.btn-secondary {
+    background-color: var(--cta-color);
+    color: var(--txt-color);
+    font-size: var(--fs-p-mobile);
+    font-weight: 700;
+    padding: 2.4rem 1.6rem;
+    border-radius: var(--cta-radius-s);
+    text-decoration: none;
+    line-height: 0;
+    will-change: transform;
+    transition: transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+                box-shadow 0.2s ease, 
+                background-color 0.3s ease, 
+                color 0.3s ease;
+}
+
+.btn-secondary.scrolled {
+    background-color: var(--secondary-color); 
+    color: var(--main-color);
+
+}
+
+.btn-secondary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(26, 3, 90, 0.15);
+    cursor: pointer;
+    background-color: var(--secondary-color);
+    color: var(--main-color);
+}
+.btn-secondary:active {
+    transform: scale(0.96) translateY(0); 
+    box-shadow: none; 
+    background-color: var(--secondary-color);
+    color: var(--main-color);
+   filter: brightness(0.9);
+}
+
+/* --- Navigation List --- */
+.nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3.2rem;
+    width: 100%; 
+    max-width: 385px;
+}
+
+/* --- Mobile Navigation Container --- */
+.main-nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    height: 50vh;
+    border-radius: var(--cta-radius);
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden; 
+    transform: translateY(-20px);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+    background-color: rgba(76, 14, 245, 1);
+    backdrop-filter: blur(42.8px);
+    -webkit-backdrop-filter: blur(42.8px);
+    box-shadow: 0 1rem 6rem rgba(26, 3, 90, 0.3);
+    z-index: 90;
+}
+
+.main-nav[data-visible="true"] {
+    transform: translateX(0);
+    opacity: 1;
+    visibility: visible;
+}
+
+.nav-link {
+    font-size: var(--fs-h3-mobile);
+    font-weight: 700;
+    color: var(--main-color);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.nav-link:hover, .nav-link:focus { opacity: 0.8; }
+
+.menu-toggle {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--txt-color);
+    z-index: 100;
+    background: transparent;
+    border: none;
+}
+
+.icon-hamburger { display: block; transition: transform 0.2s ease; }
+.icon-close { display: none; transition: transform 0.2s ease; }
+
+.menu-toggle[aria-expanded="true"] .icon-hamburger { display: none; }
+.menu-toggle[aria-expanded="true"] .icon-close { display: block; animation: fadeIn 0.3s ease-out forwards; }
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+
+/* ========================
+   HERO SECTION & BUBBLES
+===========================*/
+
+.hero-content {
+  margin-inline: var(--margin-inline-mobile);
+}
+
+.hero-section {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding-top: clamp(1.6rem, -3.2rem + 13.33vw, var(--space-20));
+}
+
+h1 {
+  font-size: var(--fs-h1-mobile); 
+  line-height: 1.28;
+}
+
+.highlight {
+    color: var(--secondary-color);
+    display: inline;
+}
+
+.hero-subtitle {
+    font-size: var(--fs-h4-mobile);
+    font-weight: normal;
+    color: var(--txt-color);
+    padding-top: clamp(1.4rem, -3.4rem + 13.33vw, var(--space-18));
+    line-height: 1.28;
+}
+
+/* Primary Button (Main CTA) */
+
+.hero-buttons {
+    margin-block:clamp(2rem , -0.4rem + 6.67vw, 2.2rem) clamp(2.8rem, -2rem + 13.33vw, 3.2rem);
+    
+}
+
+.btn-primary {
+    z-index: 10;
+    position: relative;
+    display: inline-block; /* Essential for transform */
+    background-color: var(--secondary-color);
+    color: var(--main-color);
+    font-size: var(--fs-p-mobile);
+    font-weight: 700;
+    text-decoration: none;
+    
+    /* Shape & Space */
+    padding: clamp(1.7rem, -1.90rem + 10.00vw, 2rem) clamp(2.5rem, -1.1rem + 10.00vw, 2.8rem);
+    border-radius: var(--cta-radius); 
+    border: 2px solid var(--secondary-color);
+
+  
+    /* Animation */
+    will-change: transform;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+}
+
+.btn-secondary-outline {
+    display: none;
+}
+
+.btn-primary:hover {
+    transform: translateY(-5px);
+    filter: brightness(1.2);
+    cursor: pointer;
+}
+
+.btn-primary:active {
+    transform: scale(0.95);
+    box-shadow: none;
+}
+
+/* --- Hero Visual & Bubbles --- */
+.hero-visual {
+    position: relative;
+    width: 100%;
+}
+
+.hero-img {
+    width: 100%;
+    aspect-ratio: 1.238 / 1;
+    height: auto;
+    object-fit: cover;
+    position: relative;
+    z-index: 1;
+}
+
+/* --- Common Bubble Styles --- */
+.bubble {
+    position: absolute;
+    background-color: var(--bubble-bg);
+    border-radius: 1.2rem 1.2rem 0 1.2rem;
+    padding: 1.2rem 1.6rem;
+    box-shadow: var(--bubble-shadow);
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    direction: rtl;
+    font-family: "Heebo", sans-serif;
+    
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+
+    transform: translateY(0);
+    transition: transform 0.3s ease;
+}
+
+.bubble:hover { transform: translateY(-5px); }
+
+/* --- Bubble 1: Stats --- */
+.stats-bubble {
+    top: clamp(6%, 6.6% + -1.67vw, 10%);
+    right: 6%;
+    width: clamp(14rem, -10.00rem + 66.67vw, 16rem);
+    text-align: center;
+}
+
+.bubble-title {
+    font-size: clamp(1rem, -1.40rem + 6.67vw, 1.2rem); /*1.2*/
+    color: var(--txt-color);
+    font-weight: 400;
+    margin-bottom: 0.4rem;
+}
+
+.stats-bar {
+    width: 100%;
+    height: 4px;
+    background-color: #E6E6E6;
+    border-radius: 1rem;
+    margin-bottom: 0.8rem;
+    position: relative;
+    overflow: hidden;
+}
+
+/* --- Animation Keyframes --- */
+@keyframes growBar {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
+}
+
+.stats-bar::after {
+   content: '';
+    position: absolute;
+    top: 0;
+    right: 0; /* Keep it anchored to the right for RTL */
+    height: 100%;
+    background-color: var(--success-green);
+    border-radius: 10px;
+    
+    width: 100%; /* Set width to full immediately */
+    
+    /* The Magic: Use transform instead of width */
+    transform: scaleX(0); 
+    transform-origin: right; /* Make it grow from right to left */
+    
+    animation: growBar 2s ease-out forwards;
+    
+    /* Hint to the browser to use the GPU */
+    will-change: transform;
+}
+
+.stats-number {
+    font-size: clamp(1.4rem, -1.00rem + 6.67vw, 1.6rem);/* 1.6*/
+    font-weight: 800;
+    color: var(--txt-color);
+    line-height: 1;
+}
+
+.stats-growth {
+    font-size: clamp(1.4rem, -1.00rem + 6.67vw, 1.6rem);/* 1.6*/
+    color: var(--success-green);
+    font-weight: 800;
+    margin-right: 0.4rem;
+}
+
+/* --- Bubble 2: WhatsApp --- */
+.whatsapp-bubble {
+    position: absolute;
+    top: 52%; 
+    left: 19%; 
+    display: flex;
+    align-items: center;
+    
+    /* Using the exact border radius you asked for in previous steps */
+    border-radius: 1.2rem 1.2rem 0 1.2rem;
+    padding: 1.2rem 3rem 1.2rem 2rem; /* 1.3rem 4rem 1.3rem 2.4rem */
+}
+
+/* Badge Container */
+.badge-container {
+    position: absolute;
+    top: -1.5rem; 
+    right: -1rem; 
+    z-index: 10;
+    width: clamp(3.8rem, 1.40rem + 6.67vw, 4rem);
+    height: clamp(3.8rem, 1.40rem + 6.67vw, 4rem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Glow Ring */
+.badge-glow {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(170, 157, 251, 0.4);
+    border-radius: 50%;
+    animation: pulseGlow 2s infinite;
+}
+
+.notification-badge {
+    position: relative;
+    width: clamp(2.6rem, 0.20rem + 6.67vw, 2.8rem);/* 2.8 */
+    height: clamp(2.6rem, 0.20rem + 6.67vw, 2.8rem);
+    background-color: #6749FD;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    font-weight: 800;
+    z-index: 2;
+}
+
+/* WhatsApp Text */
+.whatsapp-text {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--txt-color);
+    text-align: right; 
+    margin: 0;
+    line-height: 1.2;
+}
+
+.whatsapp-text strong {
+    color: var(--txt-color);
+    font-weight: 900;
+}
+
+.pop-animation .notification-badge {
+    animation: popEffect 0.2s ease-out;
+}
+
+@keyframes popEffect {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.3); background-color: #8C72FF; } /* Flash lighter purple */
+    100% { transform: scale(1); }
+}
+
+/* --- Bubble 3: Performance --- */
+.performance-bubble {
+    display: none;
+}
+
+@media (min-height: 892px) {
+    .performance-bubble {
+        /* Turn it back on */
+        display: block;
+        z-index: 2;
+        bottom: 6%;
+        right: 15%;
+        padding: 0.8rem;
+        width: 18rem;
+        text-align: center;
+        
+    }
+
+    .gauges-row {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .gauge-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .gauge-circle {
+        z-index: 1;
+        position: relative;
+        width: 3.5rem;
+        height: 3.5rem;
+        border-radius: 50%;
+        background: conic-gradient(var(--success-green) var(--p, 0%), #E6E6E6 0%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
+        font-weight: 800;
+        color: var(--txt-color);
+        margin-bottom: 0.2rem;
+    }
+
+    .gauge-circle::before {
+    content: '';
+    position: absolute;
+    inset: 4px;
+    background-color: #fff;
+    border-radius: 50%;
+    z-index: -1;
+}
+
+    .gauge-label {
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: var(--txt-color);
+    }
+
+}
+
+
+
+/* 
+    =======================
+        Services Section
+    =======================
+*/
+
+
+
+.services-section {
+padding-block: 1.7rem;
+    position: relative;
+    overflow: visible;
+
+    /* border: 2px solid black; */
+}
+
+.container {
+    width: 100%;
+    max-width: 500px; 
+    margin-inline: auto;
+}
+/* 1. The Wrapper is now the Sticky Boss */
+.sticky-header-wrapper {
+    position: sticky;
+    position: -webkit-sticky;
+
+    top: 80px; /* The stopping point */
+    z-index: 20;
+    padding-block: 2.4rem;
+    
+    /* ⚠️ THE MAGIC FIX: */
+    /* This tells the browser: "This element effectively ends 80vh lower." */
+    /* Now, the footer hits the header's 'bottom' at the same time it hits the cards. */
+    margin-bottom: 80vh;
+}
+
+
+/* 2. The First Card: Pull it back up */
+/* Since the header now pushes everything down by 80vh, we must pull the cards back up. */
+.service-card:nth-of-type(1) {
+    margin-top: -80vh; /* Must match the header's margin-bottom exactly */
+}
+
+
+/* Title */
+/* 2. The Title is just text now */
+.section-title {
+    /* Remove position: sticky from here */
+    padding-top: 0;
+    padding-bottom: 2.4rem; /* Space between title and bar */
+    margin-bottom: 0;
+    
+    /* Keep font styles */
+    text-align: center;
+    font-size: var(--fs-h2-mobile);
+    font-weight: bold;
+    line-height: 1.25;
+}
+
+/* Container for the line */
+.progress-track {
+    width: 100%;
+    max-width: 64%; /* Keep it small and neat */
+    height: 4px;      /* Slim line */
+    background-color: #E6E6E6; /* Light grey background */
+    border-radius: 10px;
+    margin: 0 auto;   /* Center it */
+    overflow: hidden; /* Ensures the fill stays inside the rounded corners */
+
+/* ⚠️ Hide it initially */
+    opacity: 0;
+    transform: translateY(10px); /* Pushes it down slightly for a slide-up effect */
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* 2. The Class that reveals it */
+/* We will add 'show-bar' to the sticky wrapper via JS */
+.sticky-header-wrapper.show-bar .progress-track {
+    opacity: 1;
+    transform: translateY(0); /* Slides into place */
+}
+
+
+/* The filling line */
+.progress-fill {
+    height: 100%;
+    width: 0%; 
+    background-color: #9F62FE; 
+    border-radius: 1.2rem; /* Match the card's border radius for a cohesive look */
+    transition: width 0.3s ease-out; 
+}
+
+/* --- The Card --- */
+.service-card {
+    /* 1. ACTIVATES STACKING */
+    position: sticky;
+    position: -webkit-sticky;
+
+    top: 23rem; /* Adjust this number to control where cards stop */
+    z-index: 1;
+
+    /* 2. BACKGROUND & SHAPE (Per your request) */
+    background-color:var(--main-color);
+    box-shadow: none; /* Shadow on top edge */
+    border-radius: 5rem;
+
+    /* 3. LAYOUT */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    padding-bottom:4.4rem;
+    margin-bottom: 6rem;
+    
+}
+
+.ghost-card {
+    height: 20vh; /* Approximate height of a card */
+    width: 100%;
+    visibility: hidden; /* Invisible */
+    pointer-events: none;
+}
+
+.service-card.is-stuck {
+    box-shadow: 0px -5px 20px rgba(0, 0, 0, 0.04);
+}
+
+.service-card:nth-of-type(3).is-stuck{
+ box-shadow: 0px -5px 20px rgba(0, 0, 0, 0.02);
+}
+
+.service-card:nth-of-type(3).is-stuck,
+.service-card:nth-of-type(4).is-stuck {
+    box-shadow: none !important;
+}
+
+/* Background Shape Positioning */
+.card-bg-shape {
+    position: absolute;
+    top: -4rem; /* Adjust based on where you want the blob to start */
+    left: 62%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 380px; /* Prevent it from getting too huge */
+    z-index: -1; /* Send to back */
+    opacity: 1; /* Adjust if the SVG itself is too dark */
+}
+
+/* Main Image */
+.card-visual {
+    position: relative;
+    z-index: 1;
+    height: auto; 
+    /* border: 2px solid black; */
+}
+
+.img-res-1{
+    width: clamp(22rem, -14.00rem + 100.00vw, 25rem); 
+    height: auto;
+    aspect-ratio: 1.21 / 1;
+    margin-block:0.8rem clamp(0rem, -7.20rem + 20.00vw, 0.6rem); 
+}
+
+.img-res-2{
+    width: clamp(28rem, -20.00rem + 133.33vw, 32rem); 
+    height: auto;
+    aspect-ratio: 1.43 / 1;
+    margin-bottom: clamp(1rem, -8.60rem + 26.67vw, 1.8rem);
+}
+
+.img-res-3{
+    width: clamp(28rem, -20.00rem + 133.33vw, 32rem);  
+    height: auto;
+    aspect-ratio: 1.49 / 1;
+    margin-block: 1.2rem clamp(1.8rem, -5.40rem + 20.00vw, 2.4rem);
+}
+
+.img-res-4{
+    width: clamp(24rem, -24.00rem + 133.33vw, 28rem);
+    height: auto;
+    aspect-ratio: 1.21 / 1;
+    margin-block: clamp(1.8rem, -5.40rem + 20.00vw, 2.4rem) clamp(1.8rem, -12.60rem + 40.00vw, 3rem);
+}
+
+
+/* 2. The Image: Fills the container */
+.card-img {
+    width: 100%;       /* Fill the 23.6rem container */
+    height: auto;      /* Maintain original proportions */
+    display: block;    /* Removes bottom spacing gaps */
+}
+
+/* Content Area */
+.card-content {
+    padding-inline: var(--margin-inline-mobile);
+    position: relative;
+    z-index: 1;
+    text-align: right;
+}
+
+.card-title {
+    font-size: var(--fs-h3-mobile);
+    font-weight: 800;
+    margin-bottom: clamp(1.6rem, -3.20rem + 13.33vw, 2rem);
+    line-height: 1.25;
+    color: var(--txt-color);
+}
+
+/* --- Benefits List --- */
+.benefits-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(1.4rem, -3.40rem + 13.33vw, 1.8rem);
+}
+
+.benefit-item {
+    display: flex;
+    align-items: center; /* Aligns checkmark with top line of text */
+    gap: 1.2rem;
+    text-align: right;
+    direction: rtl; /* Ensures Hebrew flows correctly */
+}
+
+.benefit-text {
+    margin: 0;
+    font-size: var(--fs-p-mobile);
+    color: var(--txt-color);
+    line-height: 1.4;
+    font-weight: 500;
+    padding-left:3rem;
+}
+
+
+/* Custom Checkmark Box */
+.check-icon {
+    /* 1. Size & Layout */
+    flex-shrink: 0;
+    width: clamp(3rem, 0.60rem + 6.67vw, 3.2rem);
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color:var(--main-color);
+    border-radius:0.8rem;
+    
+    box-shadow: 0px 8px 20px rgba(159, 98, 254, 0.25);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.benefit-item:hover .check-icon {
+    transform: translateY(-2px);
+    box-shadow: 0px 12px 24px rgba(159, 98, 254, 0.35);
+}
+
+
+/* =======================
+     PORTFOLIO SECTION
+==========================*/
+
+.portfolio-section {
+    position: relative;
+    overflow: hidden; /* Prevents decorative shapes from creating scrollbars */
+    text-align: center;
+    margin-top: -2.4rem;
+    padding-bottom: 13.5rem;
+}
+
+.portfolio-header {
+    position: relative;
+    margin-bottom: var(--space-52);
+    z-index: 2;
+}
+
+/* --- Decorative Shapes --- */
+.shape-hex-outline {
+    position: absolute;
+    top: 12.5%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 110px;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.shape-hex-bg {
+    position: absolute;
+    top: 3%;
+    width:100%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* --- 1. The Animation Logic --- */
+@keyframes breatheShape {
+    0% { 
+        transform: scale(1); 
+    }
+    100% { 
+        transform: scale(1.4); /* Grows by 20% - adjust if you want it bigger/smaller */
+    }
+}
+
+.shape-hex-small {
+    position: absolute;
+    top: 8rem;  /* Moves it up/down */
+    left: 56%;  /* Moves it left/right */
+    width: 1.2rem;
+    height: auto;
+    z-index: -1;
+    will-change: transform;/* ⚠️ PERFORMANCE FIX: Tell the GPU to handle this */
+}
+
+.shape-hex-small.is-breathing {
+    animation: breatheShape 3s ease-in-out infinite alternate;
+}
+
+/* --- 3. The Accessibility Fix (Crucial for score of 100) --- */
+/* Users with vestibular disorders can get motion sickness from infinite animations. 
+   This media query turns it off if they have "Reduce Motion" enabled in their OS settings. */
+@media (prefers-reduced-motion: reduce) {
+   .shape-hex-small.is-breathing {
+        animation: none !important;
+        transform: none !important;
+    }
+}
+
+.shape-hex-left {
+display: none;
+/* position: absolute;
+bottom: -43%; 
+left: -40%;   
+width: 100%;
+max-width: 72rem;
+z-index: 0;
+opacity: 0.5;
+pointer-events: none; */
+}
+
+/* --- Mockup Composite (The Device Trio) --- */
+.mockup-composite {
+    position: relative;
+    aspect-ratio: 1.2 / 1; /* Reserves space to prevent Layout Shift (CLS) */
+    margin-inline: var(--margin-inline-mobile);
+    z-index: 1;
+    margin-top: 6rem;
+
+    /* 1. Start small (70% size) and faded (20% opacity) */
+    transform: scale(0.7);
+    opacity: 0.2;
+
+    /* 2. Setup the smooth transition */
+    /* cubic-bezier gives it a nice "snap" into place without being bouncy */
+    transition: opacity 1s ease-out, transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+    will-change: opacity, transform;
+}
+
+
+/* --- The Final State (Triggered by JavaScript) --- */
+.mockup-composite.is-visible {
+    /* 3. Return to normal size and full visibility */
+    transform: scale(1);
+    opacity: 1;
+}
+
+/* --- Accessibility Guardrail --- */
+@media (prefers-reduced-motion: reduce) {
+    .mockup-composite {
+        /* Instantly show the elements for users with motion sensitivity */
+        transition: none !important;
+        transform: scale(1) !important;
+        opacity: 1 !important;
+    }
+}
+
+/* Device: Desktop (Center Back) */
+.device-desktop {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 92%;
+    z-index: 2;
+    will-change: transform; /* Hint for GPU Performance */
+}
+
+/* Device: Phone (Front Left) */
+.device-phone {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 20%; /* Relative to container */
+    z-index: 2;
+    transition: transform 0.3s ease;
+}
+
+/* Device: Tablet (Front Right) */
+.device-tablet {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 34%;
+    z-index: 2;
+    transition: transform 0.3s ease;
+}
+
+.case-study-card {
+    position: relative;
+    isolation: isolate; /* Creates a clean stack so negative Z-indexes don't disappear behind the section background */
+}
+
+/* --- Single Hop Animations --- */
+
+/* For Phone & Tablet */
+@keyframes hopDevice {
+    0%   { transform: translateY(0); }
+    50%  { transform: translateY(-15px); } /* Goes up */
+    100% { transform: translateY(0); }     /* Returns back to original place */
+}
+
+/* For Desktop (Keeps it centered on the X-axis) */
+@keyframes hopDesktop {
+    0%   { transform: translateX(-50%) translateY(0); }
+    50%  { transform: translateX(-50%) translateY(-15px); } /* Goes up */
+    100% { transform: translateX(-50%) translateY(0); }     /* Returns back */
+}
+
+/* --- Hover Triggers --- */
+
+/* Desktop Hover */
+.device-desktop:hover {
+    animation: hopDesktop 0.8s ease-in-out;
+    /* Optional: Brings the desktop to the front so it overlaps the phone/tablet when you hover it */
+}
+
+/* Phone Hover */
+.device-phone:hover {
+    animation: hopDevice 0.8s ease-in-out;
+}
+
+/* Tablet Hover */
+.device-tablet:hover {
+    animation: hopDevice 0.8s ease-in-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .device-desktop:hover,
+    .device-phone:hover,
+    .device-tablet:hover {
+        animation: none !important;
+        transform: none !important;
+    }
+}
+
+/* Ensure images fill their wrappers */
+.mockup-composite img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+
+/* --- Content Side --- */
+.case-content {
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+    padding-inline: var(--space-32);
+    text-align: justify;
+}
+
+
+
+.case-client {
+    font-size: var(--fs-h3-mobile); /* ~2.4rem */
+    font-weight: 800;
+    color: var(--txt-color);
+    margin-block: var(--space-44) 0.4rem;
+    
+}
+
+.case-role {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: var(--txt-color);
+    margin-bottom: var(--space-20);
+}
+
+.case-description {
+    font-size: var(--fs-p-mobile);
+    line-height: 1.4;
+    color: var(--txt-color);
+    margin-bottom: var(--space-32);
+}
+
+/* Portfolio Button */
+.btn-cta {
+   display: flex;
+    justify-content: center;
+    flex-direction: row-reverse;
+    align-items: center;
+    gap: 1.2rem;
+    background-color: #581CFF; /* Bright Portfolio Purple */
+    font-size:var(--fs-p-mobile);
+}
+
+.btn-portfolio svg {
+    transition: transform 0.3s ease;
+}
+
+.btn-portfolio:hover svg {
+    transform: translateX(-4px); /* Moves arrow left on hover (RTL logic) */
+}
+
+
+/* --- Call To Action Section --- */
+.cta-section {
+    position: relative;
+    text-align: center;
+    margin-top: -6rem; /* Adjust this number to get the exact overlap you want */
+    margin-inline: var(--space-32);
+    z-index: 2; /* Ensures it sits above any stray background shapes */
+}
+
+.cta-container {
+    max-width: 65rem; /* Keeps the text from getting too wide and hard to read */
+}
+
+.cta-title {
+    font-size: 2rem; 
+    color: var(--txt-color);
+    font-weight: bold;
+    line-height: 1.25;
+    margin-bottom: var(--space-28);
+    padding-inline:1.2rem;
+    
+    /* Accessibility/Design: Makes the paragraph wrap symmetrically */
+    text-wrap: pretty; 
+}
+
+
+/* =======================
+   About Me Section
+==========================*/
+
+.shape-hex-top,
+.shape-hex-bottom,
+.shape-hex-mid,
+.bg-text-giant {
+    display: none; 
+}
+
+.about-section {
+    position: relative;
+    overflow: hidden; 
+    z-index: 1;
+    position: relative;
+}
+
+.about-container {
+    max-width: 800px;
+}
+
+/* --- Visuals Wrapper --- */
+.about-visuals {
+    position: relative;
+    padding-top: 40rem;
+    padding-bottom: 9rem;
+    z-index: 1;
+}
+
+/* Main Image */
+
+.about-img {
+    position: absolute;
+    top: 0;
+    left: -2.4rem;
+    z-index:1;
+    width: 76rem; /* Exactly as you requested */
+    height: auto;
+    aspect-ratio: 1.015 / 1;
+    max-width: none;
+}
+
+/* Tiny Shape Above Head */
+.shape-above-head {
+    position: absolute;
+    top: 38%;
+    right: 3%; 
+    width: 1.6rem; 
+    height: auto;
+    z-index: 3;
+    pointer-events: none;
+}
+
+/* --- Content Wrapper --- */
+.about-content {
+    position: relative;
+    z-index: 4; 
+    /* Pulls the text block UP to overlap your photo */
+    margin-top: -9%; 
+    max-width: 600px;
+    margin-inline: var(--margin-inline-mobile); 
+}
+
+/* Shape near the title */
+.shape-above-title {
+    position: absolute;
+    top: -1.5rem; 
+    left:1rem;
+    width: 2rem; 
+    height: auto;
+    aspect-ratio: 1 / 1.20;
+    z-index: -1; 
+    pointer-events: none;
+}
+
+
+/* --- The Breathing Animation --- */
+@keyframes breathe {
+    0%   { transform: scale(1); }
+    50%  { transform: scale(1.2); } /* Expands by 15% */
+    100% { transform: scale(1); }    /* Returns to normal */
+}
+
+/* We will attach this '.is-breathing' class using JavaScript.
+  'will-change' tells the GPU to handle the math, keeping your performance perfect.
+*/
+.shape-above-head.is-breathing,
+.shape-above-title.is-breathing {
+    animation: breathe 3s ease-in-out infinite;
+    will-change: transform; 
+}
+
+/* Offset the timing so it looks more organic, less robotic */
+.shape-above-title.is-breathing {
+    animation-delay: 1s;
+}
+
+/* --- Accessibility Guardrail --- */
+@media (prefers-reduced-motion: reduce) {
+    .shape-above-head.is-breathing,
+    .shape-above-title.is-breathing {
+        animation: none !important;
+        transform: none !important;
+    }
+}
+
+
+
+/* Typography */
+.about-title {
+    font-size: var(--fs-h2-mobile); 
+    font-weight: 800;
+    color: var(--txt-color);
+    padding-bottom: 1.6rem;
+}
+
+.about-text p {
+    font-size: var(--fs-p-mobile);
+    line-height: 1.4;
+    color: var(--txt-color);
+    margin-bottom: 1.6rem;
+    text-align: justify;
+}
+
+.about-text strong {
+    font-weight: 800;
+    color: var(--txt-color);
+}
+
+
+
+/* =======================
+   Pricing Section
+==========================*/
+
+/* --- The Scroll Track --- */
+
+.pricing-scroll-track {
+/* Creates an artificial scrollable space (300vh gives enough room to scroll past 3 cards) */
+height: 300vh;
+position: relative;
+
+}
+
+
+/* --- The Deck of Cards --- */
+
+.pricing-section {
+    position: relative;
+    padding-top: var(--space-64);
+    z-index: 1;
+    text-align: center;
+}
+
+
+.bg-shape-pricing {
+    position: absolute;
+    top: -17rem; /* Pulls it up to overlap the previous section */
+    left: 0;
+    width: 100%;
+    max-width: 76.8rem;
+    aspect-ratio: 1 / 1;
+    height: auto;
+    z-index: -2;
+    pointer-events: none;
+}
+
+
+/* --- Header --- */
+
+.pricing-header {
+    margin-bottom: var(--space-24);
+    margin-inline: var(--margin-inline-mobile);
+}
+
+.pricing-title {
+    font-size: var(--fs-h2-mobile);
+    font-weight: 800;
+    color: var(--txt-color);
+    margin-bottom: 1rem;
+
+}
+
+
+.pricing-subtitle {
+    font-size: clamp(1.8rem, -0.60rem + 6.67vw, 2rem);
+    max-width: 1000px;
+    font-weight: normal;
+    line-height: 1.4;
+}
+
+
+/* --- The Deck of Cards --- */
+
+.pricing-cards-stack {
+    position: sticky;
+    top: 15vh; /* Locks the deck near the top of the screen */
+    width: calc(100% - (0.4rem * 2));
+/* ⚠️ CHANGE THIS ONE: This now controls the width of everything! */
+    max-width: 32.8rem; 
+    margin-inline: auto; /* Keeps the whole stack centered on the screen */
+}
+
+
+/* Base styling for all cards */
+
+.pricing-card {
+    background: var(--main-color);
+    width: 100%;
+    padding-block: var(--space-24);
+    padding-inline: var(--space-20);
+    border-radius: 2rem;
+    text-align: right;
+    box-shadow: 0px 4px 32px 7px rgba(231, 231, 231, 0.52),
+
+                0px 4px 17px 4px rgba(243, 241, 255246, 0.28);
+
+    /* ⚠️ THE STACKING MAGIC: Absolute positioning stacks them perfectly on top of each other */
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    /* Prepares the GPU for the JavaScript animation */
+    will-change: transform, opacity;
+    transform-origin: center bottom;
+}
+
+
+.card-kickstart { z-index: 3; }
+
+.card-pro { z-index: 2; }
+
+.card-ultimate { z-index: 1; }
+
+
+
+/* --- Typography Inside the Card --- */
+
+.plan-name {
+    font-family: 'TelAviv-Brutalist-Bold', sans-serif;
+    font-size: 2rem;
+    color: #0ea5e9;
+    text-align: center;
+
+}
+
+
+
+#card-1 > a.btn-plan { background-color: #0ea5e9; /* Kickstart gets the bright cyan */}
+
+
+#card-2 > h3 { color: #83D63F;}
+
+
+#card-2 > a.btn-plan { background-color: #60ae20;}
+
+
+#card-2 > div.plan-price { border-color: #83D63F;}
+
+
+
+#card-3 > h3 { color: var(--secondary-color);}
+
+
+#card-3 > a.btn-plan { background-color:var(--secondary-color);}
+
+
+#card-3 > div.plan-price { border-color:var(--secondary-color);}
+
+
+.plan-desc {
+
+font-size: 1.6rem;
+
+text-align: center;
+
+margin-block: 0.4rem 0.6rem;
+
+}
+
+
+.plan-price {
+
+font-size: 2.9rem;
+
+font-weight: 800;
+
+text-align: center;
+
+margin-bottom: 2rem;
+
+padding-bottom: clamp(1.8rem, -5.40rem + 20.00vw, 2.4rem);
+
+border-bottom: 4.8px solid #0ea5e9;
+
+}
+
+
+
+.plan-includes-title {
+    font-weight: 700;
+    margin-bottom: 1.4rem;
+    font-size: 1.6rem;
+}
+
+
+.plan-features {
+    list-style: none;
+    padding: 0;
+}
+
+
+.plan-features li {
+    font-size: 1.6rem;
+    margin-bottom: clamp(1.4rem, -3.40rem + 13.33vw, 1.8rem);
+    display: flex;
+    align-items: center;
+    gap: 1.8rem;
+}
+
+
+/* The Button */
+
+.btn-plan {
+
+display: flex;
+
+justify-content: center;
+
+align-items: center;
+
+flex-direction: row-reverse;
+
+gap: 1.2rem;
+
+width: 100%;
+
+color: var(--main-color);
+
+padding-block: 1.8rem;
+
+margin-top: 2.8rem;
+
+border-radius: 1.2rem;
+
+font-size: 1.6rem;
+font-weight: 700;
+
+text-decoration: none;
+
+transition: transform 0.2s ease, background-color 0.2s ease;
+
+}
+
+
+
+.btn-plan:hover {
+    background-color: #4B17F5;
+    transform: translateY(-3px);
+}
+
+
+
+/* =========================================
+Keyframe Animations for Snappy Card Throws
+(The "Sleight of Hand" Magic Trick)
+========================================= */
+
+/* =========================================
+  Base Initial States for the 3D Deck 
+   (How the cards look before you scroll)
+========================================= */
+
+/* CARD 1: The Top Card */
+#card-1 { 
+    z-index: 3; /* Front-most layer */
+    
+    transform: scale(1) translateY(0); /* 100% full size */
+    /* Note: Card 1 has no transition here because its movement is handled entirely by the @keyframes! */
+
+    /* ⚠️ NEW: Fully bright and active! */
+    filter: brightness(1);
+}
+
+/* CARD 2: The Middle Card */
+#card-2 { 
+    z-index: 2; 
+    
+    /* THE 3D EFFECT: 
+       scale(0.95) shrinks it to 95% size so it looks slightly further away.
+       translateY(1.5rem) pushes it down slightly so it peeks out from under the top card. 
+       To make the deck look more spread out, increase 1.5rem to 2.5rem! */
+    transform: scale(0.95) translateY(3.5rem); 
+    
+    /* ⚠️ NEW: Slightly shadowed/grayed out */
+    filter: brightness(0.92);
+
+    /* THE SPEED: '0.8s' controls how slowly this card grows when Card 1 is thrown away. 
+       Keep this matched closely to your @keyframe throw speed so they feel connected! */
+    /* ⚠️ NEW: We added 'filter' to the transition so it lights up smoothly */
+    transition: transform 0.8s ease, filter 0.8s ease; 
+}
+
+/* CARD 3: The Bottom Card */
+#card-3 { 
+    z-index: 1; /* The absolute bottom layer */
+    
+    /* THE 3D EFFECT: 
+       scale(0.90) shrinks it to 90% size (smaller than Card 2).
+       translateY(3rem) pushes it down exactly double the amount of Card 2 so the spacing is even. */
+    transform: scale(0.90) translateY(7rem);
+    
+    /* ⚠️ NEW: The deepest shadow/most gray */
+    filter: brightness(0.85);
+
+    /* THE SPEED: Same 0.8s smooth growth animation */
+    /* ⚠️ NEW: Added 'filter' to the transition */
+    transition: transform 0.8s ease, filter 0.8s ease;
+}
+
+
+/* =========================================
+   3. Smooth Scaling (The "Move Up" Classes)
+   (Triggered by JavaScript when the card above flies away)
+========================================= */
+
+/* When Card 1 flies away, Card 2 moves up to become the new "Top Card" */
+#card-2.move-up { 
+    /* Matches Card 1's exact base state! */
+    transform: scale(1) translateY(0); 
+
+    /* ⚠️ NEW: Lights up to full color! */
+    filter: brightness(1);
+}
+
+/* When Card 1 flies away, Card 3 moves up to become the new "Middle Card" */
+#card-3.move-up-half { 
+    /* Matches Card 2's exact base state! */
+    transform: scale(0.95) translateY(3.5rem); 
+
+    /* ⚠️ NEW: Matches Card 2's middle shadow */
+    filter: brightness(0.92);
+}
+
+/* When Card 2 flies away, Card 3 moves up AGAIN to become the final "Top Card" */
+#card-3.move-up-full { 
+    /* Matches Card 1's exact base state! */
+    transform: scale(1) translateY(0); 
+
+    /* ⚠️ NEW: Lights up to full color! */
+    filter: brightness(1);
+}
+
+/* --- Animation Speeds & Easing --- */
+/* 0.7s = How long the throw takes. Change to 0.5s for faster, 1s for slower.
+   cubic-bezier = The "snap" feeling. It starts fast and slows down smoothly at the end. 
+   forwards = Tells the card to stay in its final position after the animation ends.
+*/
+#card-1.send-back { animation: throwCard1 0.9s cubic-bezier(0.25, 1, 0.5, 1) forwards; }
+#card-1.bring-front { animation: returnCard1 0.9s cubic-bezier(0.25, 1, 0.5, 1) forwards; }
+
+
+
+/* This forces the browser to turn off smooth transitions 
+   while the 3D keyframe animations are playing, stopping the "stitching"! */
+.send-back, .bring-front {
+    transition: none !important;
+}
+
+
+
+/* 🎬 SCENE: THROW CARD 1 TO THE BACK */
+@keyframes throwCard1 {
+    0% { transform: translateY(0) scale(1) rotate(0); z-index: 3; filter: brightness(1); }
+    50% { transform: translateY(-105%) scale(0.95) rotate(4deg); z-index: 3; filter: brightness(1); }
+    51% { z-index: 0; } 
+    /* ⚠️ NEW: Turns dark gray when it lands in the very back */
+    100% { transform: translateY(0) scale(0.85) rotate(0); z-index: 0; filter: brightness(0.85); }
+}
+
+/* 🎬 SCENE: BRING CARD 1 BACK TO THE FRONT */
+@keyframes returnCard1 {
+    /* ⚠️ NEW: Starts dark gray */
+    0% { transform: translateY(0) scale(0.85) rotate(0); z-index: 0; filter: brightness(0.85); }
+    49% { z-index: 0; }
+    /* ⚠️ NEW: Lights up to full color as it flies */
+    50% { transform: translateY(-105%) scale(0.95) rotate(4deg); z-index: 3; filter: brightness(1); }
+    100% { transform: translateY(0) scale(1) rotate(0); z-index: 3; filter: brightness(1); }
+}
+
+
+/* --- Card 2 Animation Triggers --- */
+#card-2.send-back { animation: throwCard2 0.9s cubic-bezier(0.25, 1, 0.5, 1) forwards; }
+#card-2.bring-front { animation: returnCard2 0.9s cubic-bezier(0.25, 1, 0.5, 1) forwards; }
+
+
+/* 🎬 SCENE: THROW CARD 2 TO THE VERY BACK */
+@keyframes throwCard2 {
+    0% { transform: translateY(0) scale(1) rotate(0); z-index: 2; filter: brightness(1); }
+    50% { transform: translateY(-105%) scale(0.95) rotate(-4deg); z-index: 2; filter: brightness(1); }
+    51% { z-index: -1; } 
+    /* ⚠️ NEW: Turns super dark when it lands deep in the back */
+    100% { transform: translateY(0) scale(0.8) rotate(0); z-index: -1; filter: brightness(0.8); }
+}
+
+/* 🎬 SCENE: BRING CARD 2 BACK TO THE MIDDLE */
+@keyframes returnCard2 {
+    /* ⚠️ NEW: Starts super dark */
+    0% { transform: translateY(0) scale(0.8) rotate(0); z-index: -1; filter: brightness(0.8); }
+    49% { z-index: -1; }
+    /* ⚠️ NEW: Lights up to full color as it flies */
+    50% { transform: translateY(-105%) scale(0.95) rotate(-4deg); z-index: 2; filter: brightness(1); }
+    100% { transform: translateY(0) scale(1) rotate(0); z-index: 2; filter: brightness(1); }
+}
+
+
+
+
+
+
+
+/* --- ACCESSIBILITY GUARDRAIL: Reduced Motion --- */
+@media (prefers-reduced-motion: reduce) {
+    
+    /* 1. Kill the artificial tall scroll track */
+    .pricing-scroll-track {
+        height: auto !important;
+    }
+
+    /* 2. Turn off the sticky lock and switch to a standard Flexbox column */
+    .pricing-cards-stack {
+        position: relative !important;
+        top: 0 !important;
+        height: auto !important;
+        display: flex;
+        flex-direction: column;
+        gap: 4rem; /* Adds space between the cards */
+    }
+
+    /* 3. Pull the cards out of the absolute pile and block the JavaScript transforms */
+    .pricing-card {
+        position: relative !important;
+        transform: none !important; /* ⚠️ Blocks the JS movement */
+        z-index: 1 !important; /* ⚠️ Blocks the JS layer shuffling */
+    }
+}
+
+
+
+/* =========================================
+    TABLET LAYOUT (768px and wider)
+========================================= */
+@media (min-width: 744px) {
+
+    /* =======================
+        HEADER & NAVIGATION
+    ==========================*/
+
+    .site-header {
+        padding-block: 1rem;
+    }
+
+    .hero-content {
+        margin-inline:clamp(4rem, -38.00rem + 54.69vw, 18rem);
+    }
+
+    h1 {
+        font-size: var(--fs-h1-tablet); 
+        line-height: 1.28;
+    }
+
+    .hero-subtitle {
+        font-size: 2.4rem;
+        line-height: 1.5;
+        padding-inline: 4.8rem;
+        padding-top: 2.4rem;
+    }
+
+    /* 1. Put the buttons side-by-side */
+    .hero-buttons {
+        display: flex;
+        flex-direction: row;
+        align-items: center; /* Centers them vertically */
+        justify-content: center; /* Centers the whole button group horizontally */
+        gap: 2rem; /* The space between them */
+        margin-bottom: clamp(3.2rem, 0.80rem + 3.13vw, 4rem);
+    }
+
+    .btn-primary {
+        font-size: 1.8rem;
+        padding: 2rem 3.2rem
+    }
+
+    .btn-secondary-outline {
+        display: inline-block; /* Makes it visible! */
+        font-size: 1.8rem;
+        font-weight: 700;
+        padding: 2rem 3.2rem;
+        text-decoration: none;
+
+        /* Your Custom Outline Colors */
+        background-color: var(--main-color);
+        color: var(--txt-color);
+        /* 2px border using your text color */
+        border-radius: var(--cta-radius);
+        border: 2px solid var(--txt-color);
+        will-change: transform;
+        transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+    }
+
+    /* 3. The Hover State */
+    .btn-secondary-outline:hover {
+        transform: translateY(-5px);
+        /* A premium effect: invert the colors on hover! */
+        background-color: var(--txt-color); 
+        color: var(--main-color);
+        cursor: pointer;
+    }
+
+    .btn-secondary-outline:active {
+        transform: scale(0.95);
+    }
+
+
+    /* --- Hero Image --- */
+    .hero-img {
+        /* Update the aspect ratio to match the new tablet_hero_img.avif (1563 / 1951) */
+        aspect-ratio: 1.3 / 1; 
+        height: auto;
+    }
+
+    /* --- Common Bubble Styles --- */
+
+    /* --- Bubble 1: Stats --- */
+    .stats-bubble{
+        width: 20rem;
+        right: 12%;
+        top: clamp(9rem, -6.00rem + 19.53vw, 14rem);
+    }
+
+    .bubble-title {
+        font-size: 1.4rem;
+    }
+
+    .stats-number {
+        font-size: 1.8rem;
+    }
+
+    /* --- Bubble 2: WhatsApp --- */
+    .whatsapp-bubble{
+        top: 52%; 
+        left: clamp(24rem, -30.00rem + 70.31vw, 42rem);
+        padding: 1.6rem 4rem 1.6rem 3.2rem
+    }
+
+    .whatsapp-text{
+        font-size: 1.6rem;
+    }
+
+    /* --- Bubble 3: Performance --- */
+    .performance-bubble {
+        width: 22rem;
+        padding: 1.2rem 2rem;
+        bottom: clamp(2rem, -19.00rem + 27.34vw, 9rem);
+    }
+
+    .gauge-circle {
+        font-size: 1.4rem;
+        line-height: 0;
+        margin-block: 1.2rem 0.4rem;
+        width: 4.4rem;
+        height: 4.4rem;
+    }
+
+    .gauge-label{
+        font-size: 1rem;
+    }
+
+
+    /* =======================
+        Services Section
+    ==========================*/
+    .services-section .container { max-width: 1000px;  }
+
+    .section-title{
+        font-size: var(--fs-h2-tablet); 
+        padding-bottom: 3.8rem;
+    }
+
+    .benefit-text {
+        font-size: var(--fs-p-tablet);
+         padding-left: 0; 
+         line-height: 1.5;
+    }
+
+    .benefits-list{
+        gap: 2rem;
+    }
+
+    .service-card:nth-of-type(1) .benefits-list,
+    .service-card:nth-of-type(3) .benefits-list,
+    .service-card:nth-of-type(4) .benefits-list
+    {
+    padding-left: clamp(0rem, -12.00rem + 15.63vw, 4rem);
+    }
+
+
+    .benefit-item {
+        gap: 1.8rem;
+    }
+
+
+    .service-card {
+        display: flex;
+        flex-direction: row; /* Because of RTL: Image sits Right, Text sits Left */
+        align-items: center; /* THE MAGIC FIX: Perfectly vertically centers the image with the text */
+        justify-content: space-between;
+        gap: clamp(10rem, -20.00rem + 39.06vw, 20rem);
+        padding-inline:clamp(3.2rem, 0.80rem + 3.13vw, 4rem);
+        padding-block: 6rem;
+        margin-bottom: 20rem;
+        top: 30rem; /* Adjusts the sticky stack height for the larger screen */
+    }
+
+    /* 3. Reverse the Even Cards (Cards 2 & 4) */
+    .service-card:nth-of-type(even) {
+        flex-direction: row-reverse; /* RTL: Image sits Left, Text sits Right */
+    }
+
+
+    /* Make sure text aligns nicely inside its half */
+    .card-content {
+        flex: 1; 
+        min-width: 0; 
+        padding-inline: 0; 
+        text-align: justify;
+        padding-block: 6rem;
+    }
+
+
+
+    .card-title {
+        font-size: var(--fs-h3-tablet); /* Scales up the title for tablet */
+        margin-bottom: 3.6rem;
+    }
+
+    .card-visual {
+        /* Optional: Adding this helps prevent images from breaking out */
+        display: flex;
+        justify-content: center;
+    }
+
+    /* --- 5. THE IMAGE FIX --- */
+    /* Kill the mobile margins so 'align-items: center' works perfectly */
+     
+    .img-res-1, .img-res-2, .img-res-3, .img-res-4 {
+        width: 100%;
+    }
+    .img-res-1 { 
+        flex: 0 0 clamp(28rem, 16.00rem + 15.63vw, 32rem); /* Stays fixed at 280px wide */
+        margin-top: 10rem;
+    } 
+
+    .img-res-2 { 
+        flex: 0 0 clamp(31rem, 10.00rem + 27.34vw, 38rem); /* Now it can finally grow massive! */
+        margin-top: 8rem;
+        margin-bottom: 0;
+    } 
+
+    .img-res-3 { 
+        flex: 0 0 clamp(32rem, 26.00rem + 7.81vw, 34rem);
+    } 
+
+    .img-res-4 { 
+        flex: 0 0 clamp(30rem, 18.00rem + 15.63vw, 34rem); 
+         margin-top: 6rem;
+    }
+
+/* --- 6. The Purple Background Blobs --- */
+    .card-bg-shape {
+        top: clamp(17rem, 14.00rem + 3.91vw, 18rem);
+        transform: translateY(-50%);
+        height: clamp(54rem, 42.00rem + 15.63vw, 58rem);
+        width: auto;
+        aspect-ratio: 1 / 1; /* Keeps the original proportions of the SVG */
+        overflow: visible;
+        
+    }
+
+    .service-card .card-bg-shape {
+        right: clamp(3rem, -24.00rem + 35.16vw, 12rem);
+    }
+
+    /* Even Cards (Image Left): Blob on the Left Edge & Flipped */
+    /* .service-card:nth-of-type(even) .card-bg-shape {
+        left: 0;
+        transform: translateY(-50%) scaleX(-1); 
+    } */
+
+    .progress-track{
+        max-width: 36%; /* Scales up the progress bar for tablet */
+    }
+
+
+
+/* =======================
+    PORTFOLIO SECTION
+==========================*/
+
+    .portfolio-section{
+        margin-top: -8.8rem;
+        padding-bottom: 20rem;
+    }
+
+    .portfolio-header{
+      margin-bottom: var(--space-64);  
+    }
+
+    .container{
+        max-width: 1000px;
+        padding-inline: clamp(0rem, -9.00rem + 11.72vw, 3rem);
+    }
+
+    .section-title{
+        padding: 0;
+    }
+
+
+    .shape-hex-bg {
+        transform: rotate(180deg); 
+        /* Optional: Because we flipped it upside down, its center of gravity changes. 
+           You might want to pull it up slightly so it doesn't overlap your title too much. */
+           top:-16rem;
+           left:clamp(-28rem, -46.00rem + 23.44vw, -22rem);
+           aspect-ratio: 1/1; /* Keeps the original proportions of the SVG */
+           height: auto;
+           width:clamp(69rem, 60.00rem + 11.72vw, 72rem);
+    }
+
+    .shape-hex-outline {
+            top:14%;
+            left: 24%;
+    }
+
+    .shape-hex-small{
+    top: 6rem;  /* Moves it up/down */
+    left: 30%;  /* Moves it left/right */
+    width: 1.3rem;
+
+    }
+
+    .shape-hex-left {
+        display: none;
+    }
+
+    /* 1. The Side-by-Side Layout */
+    .case-study-card {
+        display: flex;
+        /* RTL trick: Puts the 1st item (Mockup) on the Left, 2nd item (Text) on the Right */
+        flex-direction: row-reverse; 
+        align-items: center;
+        justify-content: space-between;
+        gap: clamp(10rem, -2.00rem + 15.63vw, 14rem);
+    }
+
+    .case-content{
+        padding-inline: 3.2rem 0 ;
+    }
+
+    .case-description{
+        font-size: var(--fs-p-tablet);
+        margin-bottom: var(--space-20);
+    }
+
+    .case-role {
+        font-size: 1.5rem;
+    }
+
+    .case-client {
+        margin-block: 0 clamp(0.4rem, -1.40rem + 2.34vw, 1rem);
+    }
+
+    .mockup-composite {
+        flex: 0 0 clamp(33rem, 18.00rem + 19.53vw, 38rem);
+        margin-top: clamp(0rem, -7.20rem + 9.38vw, 2.4rem);
+        margin-inline: 0 1.6rem; /* Resets mobile margin */
+        padding: 0;
+    }
+
+    .device-phone{
+        left: 0;/*1.3*/
+    }
+
+
+   .case-content > a{
+    font-size: var(--fs-p-tablet);
+    padding-inline: 2.8rem ;
+    padding-block: 2rem 1.8rem;
+    display: inline-flex;
+   }
+
+/* =======================
+   About Me Section
+==========================*/
+
+.shape-hex-top,
+.shape-hex-bottom,
+.shape-hex-mid,
+.bg-text-giant {
+    display: block;
+    position: absolute;
+    pointer-events: none; 
+}
+
+.about-section {
+        /* Pulls the ENTIRE section up into the Portfolio section */
+        margin-top: -15rem; 
+        
+        /* Pushes the content back down, creating a 15rem "safe zone" at the top */
+        padding-top: 15rem; 
+        
+    }
+
+.about-container {
+        display: flex;
+        flex-direction: row; /* RTL Layout: Image Left, Text Right */
+        align-items: center; /* Vertically centers the text with the image */
+        justify-content: space-between;
+        max-width: 1000px; /* Match your other sections */
+        gap: 12rem;
+        padding-bottom:16rem; /*6*/
+        /* border: 2px solid red; */
+    }
+    .about-visuals {
+        flex: 1;
+        padding-top: 0; /* Reset mobile padding */
+        padding-bottom: 0; /* Reset mobile padding */
+        display: flex;
+        justify-content: center; /* Centers your photo in its column */
+
+        /* Optional: Adding alignment here helps if the negative margin pulls it too far */
+        align-items: flex-start;
+    }
+
+    .about-img {
+        position: absolute;
+        top: clamp(-45rem, -25.00rem + -19.53vw, -40rem);
+        left: clamp(-9rem, -21.00rem + 15.63vw, -5rem);
+        aspect-ratio: 1 /2;
+        height: auto;
+        width: clamp(40rem, 22.00rem + 23.44vw, 46rem);
+    }
+
+    .about-content {
+        flex: 1;
+        margin-top: 0; /* Reset mobile negative margin */
+        position: relative; /* Needed to anchor the giant background text */
+        z-index: 2;
+        padding-left: clamp(1.6rem, -7.40rem + 11.72vw, 4.6rem);
+        padding-top: clamp(4.8rem, -28.80rem + 43.75vw, 16rem);
+    }
+
+    .bg-text-giant {
+        font-size: clamp(7.6rem, 0.40rem + 9.38vw, 10rem);
+        font-weight: 800;
+        color: #E8E4FA; 
+        padding-top: 1.6rem;
+        }
+
+    .about-title{
+        padding-top: clamp(14rem, 8.00rem + 7.81vw, 16rem);
+        font-size: 2.4rem;
+    }
+
+    .about-text p{
+        font-size: 1.7rem;
+    }
+
+    
+    /* Adjust these clamp values based on your exact layout preferences! */
+    .shape-hex-top {
+        top: clamp(10rem, 18.00rem + -7.81vw, 12rem);
+        right: 18rem;
+        width: 4rem;
+        z-index: 3;
+    }
+
+    .shape-hex-bottom {
+        top: 15%;
+        right: 0; /* Behind the arm on the far left edge */
+        width: 5.6rem;
+        z-index: 0; 
+    }
+
+    .shape-hex-mid {
+        top: clamp(34rem, 22.00rem + 15.63vw, 38rem);
+        right:clamp(37rem, 14.50rem + 29.30vw, 44.5rem);
+        width: 2rem;
+        z-index: 3;
+    }
+
+
+    .shape-above-title{
+        display:none
+    }
+
+    .shape-above-head{
+        top: -10rem; /*-0*/
+        right: clamp(-5rem, 11.00rem + -15.63vw, -1rem); /*-1*/
+        width: 2rem;  
+
+    }
+
+
+    /* =======================
+   Pricing Section
+==========================*/
+
+
+.pricing-section {
+        overflow: visible; 
+        margin-top: 10rem;
+    }
+
+    /* ⚠️ THE MAGIC: This freezes the Title, Subtitle, and Background Shape! */
+    .pricing-sticky-group {
+        position: sticky;
+        position: -webkit-sticky;
+        top: 15rem; 
+        z-index: 10;
+    }
+
+   .pricing-cards-stack {
+        z-index: 20; 
+    }
+
+    .pricing-title {
+        font-size: var(--fs-h2-tablet);
+    }
+
+    .pricing-subtitle {
+        padding-inline: 12rem;
+        font-size: 2.4rem;
+    }
+
+    .bg-shape-pricing {
+        top: -50rem;
+        left: 50%;
+        transform: translateX(-50%);
+
+    }
+
+    .pricing-cards-stack {
+        top: 30rem; 
+        margin-top: 0;
+    }
+
+
+
+}        

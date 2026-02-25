@@ -1,0 +1,17 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "ruth_website",
+  "license": "ISC",
+  "author": "ruth",
+  "type": "module",
+  "main": "convert_ttf_to_woff2.js",
+  "scripts": {
+    "convert-fonts": "node convert_ttf_to_woff2.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "sharp": "^0.33.5",
+    "ttf2woff2": "^8.0.0"
+  }
+}
