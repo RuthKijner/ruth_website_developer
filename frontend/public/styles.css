@@ -1466,34 +1466,20 @@ border-bottom: 4.8px solid #0ea5e9;
 /* The Button */
 
 .btn-plan {
-
-display: flex;
-
-justify-content: center;
-
-align-items: center;
-
-flex-direction: row-reverse;
-
-gap: 1.2rem;
-
-width: 100%;
-
-color: var(--main-color);
-
-padding-block: 1.8rem;
-
-margin-top: 2.8rem;
-
-border-radius: 1.2rem;
-
-font-size: 1.6rem;
-font-weight: 700;
-
-text-decoration: none;
-
-transition: transform 0.2s ease, background-color 0.2s ease;
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row-reverse;
+    gap: 1.2rem;
+    width: 100%;
+    color: var(--main-color);
+    padding-block: 1.8rem;
+    margin-top: 2.8rem;
+    border-radius: 1.2rem;
+    font-size: 1.6rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
 
@@ -1503,191 +1489,6 @@ transition: transform 0.2s ease, background-color 0.2s ease;
     transform: translateY(-3px);
 }
 
-
-
-/* =========================================
-Keyframe Animations for Snappy Card Throws
-(The "Sleight of Hand" Magic Trick)
-========================================= */
-
-/* =========================================
-  Base Initial States for the 3D Deck 
-   (How the cards look before you scroll)
-========================================= */
-
-/* CARD 1: The Top Card */
-#card-1 { 
-    z-index: 3; /* Front-most layer */
-    
-    transform: scale(1) translateY(0); /* 100% full size */
-    /* Note: Card 1 has no transition here because its movement is handled entirely by the @keyframes! */
-
-    /* ⚠️ NEW: Fully bright and active! */
-    filter: brightness(1);
-}
-
-/* CARD 2: The Middle Card */
-#card-2 { 
-    z-index: 2; 
-    
-    /* THE 3D EFFECT: 
-       scale(0.95) shrinks it to 95% size so it looks slightly further away.
-       translateY(1.5rem) pushes it down slightly so it peeks out from under the top card. 
-       To make the deck look more spread out, increase 1.5rem to 2.5rem! */
-    transform: scale(0.95) translateY(3.5rem); 
-    
-    /* ⚠️ NEW: Slightly shadowed/grayed out */
-    filter: brightness(0.92);
-
-    /* THE SPEED: '0.8s' controls how slowly this card grows when Card 1 is thrown away. 
-       Keep this matched closely to your @keyframe throw speed so they feel connected! */
-    /* ⚠️ NEW: We added 'filter' to the transition so it lights up smoothly */
-    transition: transform 0.8s ease, filter 0.8s ease; 
-}
-
-/* CARD 3: The Bottom Card */
-#card-3 { 
-    z-index: 1; /* The absolute bottom layer */
-    
-    /* THE 3D EFFECT: 
-       scale(0.90) shrinks it to 90% size (smaller than Card 2).
-       translateY(3rem) pushes it down exactly double the amount of Card 2 so the spacing is even. */
-    transform: scale(0.90) translateY(7rem);
-    
-    /* ⚠️ NEW: The deepest shadow/most gray */
-    filter: brightness(0.85);
-
-    /* THE SPEED: Same 0.8s smooth growth animation */
-    /* ⚠️ NEW: Added 'filter' to the transition */
-    transition: transform 0.8s ease, filter 0.8s ease;
-}
-
-
-/* =========================================
-   3. Smooth Scaling (The "Move Up" Classes)
-   (Triggered by JavaScript when the card above flies away)
-========================================= */
-
-/* When Card 1 flies away, Card 2 moves up to become the new "Top Card" */
-#card-2.move-up { 
-    /* Matches Card 1's exact base state! */
-    transform: scale(1) translateY(0); 
-
-    /* ⚠️ NEW: Lights up to full color! */
-    filter: brightness(1);
-}
-
-/* When Card 1 flies away, Card 3 moves up to become the new "Middle Card" */
-#card-3.move-up-half { 
-    /* Matches Card 2's exact base state! */
-    transform: scale(0.95) translateY(3.5rem); 
-
-    /* ⚠️ NEW: Matches Card 2's middle shadow */
-    filter: brightness(0.92);
-}
-
-/* When Card 2 flies away, Card 3 moves up AGAIN to become the final "Top Card" */
-#card-3.move-up-full { 
-    /* Matches Card 1's exact base state! */
-    transform: scale(1) translateY(0); 
-
-    /* ⚠️ NEW: Lights up to full color! */
-    filter: brightness(1);
-}
-
-/* --- Animation Speeds & Easing --- */
-/* 0.7s = How long the throw takes. Change to 0.5s for faster, 1s for slower.
-   cubic-bezier = The "snap" feeling. It starts fast and slows down smoothly at the end. 
-   forwards = Tells the card to stay in its final position after the animation ends.
-*/
-#card-1.send-back { animation: throwCard1 0.9s cubic-bezier(0.25, 1, 0.5, 1) forwards; }
-#card-1.bring-front { animation: returnCard1 0.9s cubic-bezier(0.25, 1, 0.5, 1) forwards; }
-
-
-
-/* This forces the browser to turn off smooth transitions 
-   while the 3D keyframe animations are playing, stopping the "stitching"! */
-.send-back, .bring-front {
-    transition: none !important;
-}
-
-
-
-/* 🎬 SCENE: THROW CARD 1 TO THE BACK */
-@keyframes throwCard1 {
-    0% { transform: translateY(0) scale(1) rotate(0); z-index: 3; filter: brightness(1); }
-    50% { transform: translateY(-105%) scale(0.95) rotate(4deg); z-index: 3; filter: brightness(1); }
-    51% { z-index: 0; } 
-    /* ⚠️ NEW: Turns dark gray when it lands in the very back */
-    100% { transform: translateY(0) scale(0.85) rotate(0); z-index: 0; filter: brightness(0.85); }
-}
-
-/* 🎬 SCENE: BRING CARD 1 BACK TO THE FRONT */
-@keyframes returnCard1 {
-    /* ⚠️ NEW: Starts dark gray */
-    0% { transform: translateY(0) scale(0.85) rotate(0); z-index: 0; filter: brightness(0.85); }
-    49% { z-index: 0; }
-    /* ⚠️ NEW: Lights up to full color as it flies */
-    50% { transform: translateY(-105%) scale(0.95) rotate(4deg); z-index: 3; filter: brightness(1); }
-    100% { transform: translateY(0) scale(1) rotate(0); z-index: 3; filter: brightness(1); }
-}
-
-
-/* --- Card 2 Animation Triggers --- */
-#card-2.send-back { animation: throwCard2 0.9s cubic-bezier(0.25, 1, 0.5, 1) forwards; }
-#card-2.bring-front { animation: returnCard2 0.9s cubic-bezier(0.25, 1, 0.5, 1) forwards; }
-
-
-/* 🎬 SCENE: THROW CARD 2 TO THE VERY BACK */
-@keyframes throwCard2 {
-    0% { transform: translateY(0) scale(1) rotate(0); z-index: 2; filter: brightness(1); }
-    50% { transform: translateY(-105%) scale(0.95) rotate(-4deg); z-index: 2; filter: brightness(1); }
-    51% { z-index: -1; } 
-    /* ⚠️ NEW: Turns super dark when it lands deep in the back */
-    100% { transform: translateY(0) scale(0.8) rotate(0); z-index: -1; filter: brightness(0.8); }
-}
-
-/* 🎬 SCENE: BRING CARD 2 BACK TO THE MIDDLE */
-@keyframes returnCard2 {
-    /* ⚠️ NEW: Starts super dark */
-    0% { transform: translateY(0) scale(0.8) rotate(0); z-index: -1; filter: brightness(0.8); }
-    49% { z-index: -1; }
-    /* ⚠️ NEW: Lights up to full color as it flies */
-    50% { transform: translateY(-105%) scale(0.95) rotate(-4deg); z-index: 2; filter: brightness(1); }
-    100% { transform: translateY(0) scale(1) rotate(0); z-index: 2; filter: brightness(1); }
-}
-
-
-
-
-
-
-
-/* --- ACCESSIBILITY GUARDRAIL: Reduced Motion --- */
-@media (prefers-reduced-motion: reduce) {
-    
-    /* 1. Kill the artificial tall scroll track */
-    .pricing-scroll-track {
-        height: auto !important;
-    }
-
-    /* 2. Turn off the sticky lock and switch to a standard Flexbox column */
-    .pricing-cards-stack {
-        position: relative !important;
-        top: 0 !important;
-        height: auto !important;
-        display: flex;
-        flex-direction: column;
-        gap: 4rem; /* Adds space between the cards */
-    }
-
-    /* 3. Pull the cards out of the absolute pile and block the JavaScript transforms */
-    .pricing-card {
-        position: relative !important;
-        transform: none !important; /* ⚠️ Blocks the JS movement */
-        z-index: 1 !important; /* ⚠️ Blocks the JS layer shuffling */
-    }
-}
 
 
 
