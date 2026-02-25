@@ -9,11 +9,23 @@
 <body>
     <header class="site-header">
         <div class="container header-inner">
-                <a href="/" class="logo" aria-label="Home - RK Design">
-                    <svg width="57" height="60" viewBox="0 -7 57 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M31.7749 42C32.1909 42 32.3989 41.792 32.3989 41.376V15.024C32.3989 14.608 32.1909 14.4 31.7749 14.4H9.45487C6.19087 14.4 3.99887 15.072 2.87887 16.416C1.75887 17.728 1.19887 19.392 1.19887 21.408V24.24C1.19887 25.744 1.39087 26.96 1.77487 27.888C2.12687 28.816 2.76687 29.568 3.69487 30.144C4.62287 30.688 5.93487 31.056 7.63087 31.248C8.04687 31.28 8.12687 31.456 7.87087 31.776L0.142874 41.52L-0.00112724 41.808C-0.00112724 41.936 0.126873 42 0.382874 42H3.45487C3.90287 42 4.23887 41.84 4.46287 41.52L12.1909 31.872C12.4149 31.552 12.7509 31.392 13.1989 31.392H28.4149C28.8309 31.392 29.0389 31.6 29.0389 32.016V41.376C29.0389 41.792 29.2469 42 29.6629 42H31.7749ZM11.3749 28.224C8.91087 28.224 7.16687 27.984 6.14287 27.504C5.08687 26.992 4.55887 26.08 4.55887 24.768V21.888C4.55887 20.416 4.92687 19.328 5.66287 18.624C6.36687 17.92 7.79087 17.568 9.93487 17.568H28.4149C28.8309 17.568 29.0389 17.776 29.0389 18.192V27.6C29.0389 28.016 28.8309 28.224 28.4149 28.224H11.3749Z" fill="black"/>
-                    <path d="M24.3189 42C23.9029 42 23.6949 41.792 23.6949 41.376V15.024C23.6949 14.608 23.9029 14.4 24.3189 14.4H26.4309C26.8469 14.4 27.0549 14.608 27.0549 15.024V25.632C27.0549 26.048 27.2629 26.256 27.6789 26.256H31.7589C32.1749 26.256 32.5589 26.144 32.9109 25.92L49.5189 14.736C49.8709 14.512 50.2549 14.4 50.6709 14.4H54.9909C55.4069 14.4 55.4389 14.512 55.0869 14.736L36.1749 27.504C35.9829 27.6 35.8869 27.712 35.8869 27.84C35.8869 27.904 35.9829 28.016 36.1749 28.176L55.9989 41.664C56.3509 41.888 56.3189 42 55.9029 42H51.4869C51.0709 42 50.6869 41.888 50.3349 41.664L32.8149 29.76C32.4629 29.536 32.0789 29.424 31.6629 29.424H27.6789C27.2629 29.424 27.0549 29.632 27.0549 30.048V41.376C27.0549 41.792 26.8469 42 26.4309 42H24.3189Z" fill="black"/>
-                    </svg>
+               <a href="/" class="logo" aria-label="דף הבית - רות קיז'נר">
+                    <picture>
+                        <source 
+                            media="(min-width: 1101px)" 
+                            srcset="../assets/svg/logo_desktop.svg"
+                            width="165" 
+                            height="66"
+                        >
+                        
+                        <img 
+                            src="../assets/svg/logo.svg" 
+                            alt="רות קיז'נר - בניית אתרים ואוטומציה לעסקים" 
+                            class="logo-img"
+                            width="57" 
+                            height="60"
+                        >
+                    </picture>
                 </a>
 
                 <a href="#consultation" class="btn-secondary nav-cta">
@@ -50,88 +62,103 @@
 
     <main>
         <section class="hero-section" aria-labelledby="hero-title">
-            
-            <div class="hero-content">
-                <h1 id="hero-title">
-                    אתר שעובד בשבילך והופך לידים, 
-                    <span class="highlight">ללקוחות משלמים!</span>                
-                </h1>
-                
+            <div class="container hero-inner">
+                <div class="hero-content">
+                    <h1 id="hero-title">
+                        אתר שעובד בשבילך והופך לידים 
+                        <span class="highlight">ללקוחות משלמים!</span>                
+                    </h1>
+                    
                 <h4 class="hero-subtitle">
-                    שילוב של עיצוב שבונה סמכות ואמון, ביצועים שגוגל אוהב לקדם ושיווק חכם שמביא לקוחות נכונים.
-                </h4>
+                        שילוב של עיצוב שבונה סמכות ואמון, ביצועים שגוגל אוהב לקדם ושיווק חכם שמביא לקוחות נכונים<span class="mobile-period">.</span>   
+                        <span class="desktop-text"> גם כשאתם לא בעסק.</span>
+                    </h4>
 
-                <div class="hero-buttons">
-                    <a href="#consultation" class="btn-primary">
-                        קביעת שיחת ייעוץ
-                    </a>
+                    <div class="hero-buttons">
+                        <a href="#consultation" class="btn-primary">
+                            קביעת שיחת ייעוץ
+                        </a>
 
-                    <a href="#portfolio" class="btn-secondary-outline">
-                        צפייה בתיק העבודות
-                    </a>
+                        <a href="#portfolio" class="btn-secondary-outline">
+                            צפייה בתיק העבודות
+                        </a>
+                    </div>
                 </div>
-            </div>
 
-            <div class="hero-visual">
-                <picture>
-                    <source 
-                        media="(min-width: 744px)" 
-                        type="image/avif"
-                        srcset="../assets/img/avif/tablet_hero_img.avif"
-                        width="1488"
-                        height="1138"
-                    >
-                    
-                    <img 
-                        src="../assets/img/avif/hero_img_mobile.avif" 
-                        alt="Smiling woman holding a laptop showing business growth" 
-                        class="hero-img"
-                        width="780"
-                        height="630"
-                        loading="eager" 
-                        fetchpriority="high"
-                    >
-                </picture>
+                <div class="hero-visual">
+                    <picture>
+                        <source 
+                            media="(min-width: 1101px)" 
+                            type="image/avif"
+                            srcset="../assets/img/avif/hero_section_desktop.avif"
+                            width="2252"
+                            height="2444"
+                        >
 
-                <div class="bubble stats-bubble">
-                    <span class="bubble-title">צפיות בפרופיל העסקי</span>
-                    
-                    <div class="stats-bar"></div>
-                    
-                    <div class="stats-number">
-                        <span id="view-count">0</span> 
+                        <source 
+                            media="(min-width: 744px)" 
+                            type="image/avif"
+                            srcset="../assets/img/avif/tablet_hero_img.avif"
+                            width="1488"
+                            height="1138"
+                        >
                         
-                        <span class="stats-growth">
-                            (+<span id="percent-count">0</span>%)
-                        </span>
-                    </div>
-                </div>
+                        <img 
+                            src="../assets/img/avif/hero_img_mobile.avif" 
+                            alt="Smiling woman holding a laptop showing business growth" 
+                            class="hero-img"
+                            width="780"
+                            height="630"
+                            loading="eager" 
+                            fetchpriority="high"
+                        >
+                    </picture>
 
-                <div class="whatsapp-bubble bubble">
-                    <div class="badge-container">
-                        <div class="badge-glow"></div>
-                        <div class="notification-badge">0</div>
+                    <div class="google-bubble bubble">
+                        <span>האתר מותאם לדרישות גוגל</span>
+                        <img src="../assets/svg/check_mark_bubble.svg" alt="" aria-hidden="true" width="24" height="24">
                     </div>
-                    <div class="whatsapp-text">
-                        <strong id="leads-count">0 פניות</strong> הועברו לווצאפ
-                    </div>
-                </div>
 
-                <div class="bubble performance-bubble">
-                    <span class="bubble-title">ביצועי אתר: <strong>מקסימליים</strong></span>
-                    
-                    <div class="gauges-row">
-                        <div class="gauge-item">
-                            <div class="gauge-circle">0</div>
-                            <span class="gauge-label">Performance</span>
+                    <div class="bubble stats-bubble">
+                        <span class="bubble-title">צפיות בפרופיל העסקי</span>
+                        
+                        <div class="stats-bar"></div>
+                        
+                        <div class="stats-number">
+                            <span id="view-count">0</span> 
+                            
+                            <span class="stats-growth">
+                                (+<span id="percent-count">0</span>%)
+                            </span>
                         </div>
-                        <div class="gauge-item">
-                            <div class="gauge-circle">0</div>
-                            <span class="gauge-label">Accessibility</span>
+                    </div>
+
+                    <div class="whatsapp-bubble bubble">
+                        <div class="badge-container">
+                            <div class="badge-glow"></div>
+                            <div class="notification-badge">0</div>
                         </div>
-                        <div class="gauge-item">
-                            <div class="gauge-circle">0</div>
-                            <span class="gauge-label">SEO</span>
+                        <div class="whatsapp-text">
+                            <strong id="leads-count">0 פניות</strong> הועברו לווצאפ
+                        </div>
+                    </div>
+
+                    <div class="bubble performance-bubble">
+                        <span class="bubble-title">ביצועי אתר: <strong>מקסימליים</strong></span>
+                        
+                        <div class="gauges-row">
+                            <div class="gauge-item">
+                                <div class="gauge-circle">0</div>
+                                <span class="gauge-label">Performance</span>
+                            </div>
+                            <div class="gauge-item">
+                                <div class="gauge-circle">0</div>
+                                <span class="gauge-label">Accessibility</span>
+                            </div>
+                            <div class="gauge-item">
+                                <div class="gauge-circle">0</div>
+                                <span class="gauge-label">SEO</span>
+                            </div>
                         </div>
                     </div>
                 </div>

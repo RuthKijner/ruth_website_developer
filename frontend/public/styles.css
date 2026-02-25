@@ -311,6 +311,15 @@ img {
   margin-inline: var(--margin-inline-mobile);
 }
 
+/* --- Copywriting Visibility (Mobile First) --- */
+.mobile-period {
+    display: inline;
+}
+
+.desktop-text {
+    display: none;
+}
+
 .hero-section {
   display: flex;
   flex-direction: column;
@@ -566,8 +575,8 @@ h1 {
 
 @media (min-height: 892px) {
     .performance-bubble {
-        /* Turn it back on */
         display: block;
+        border-radius: 0 1.2rem 1.2rem 1.2rem;
         z-index: 2;
         bottom: 6%;
         right: 15%;
@@ -1522,6 +1531,14 @@ position: relative;
         margin-inline:clamp(4rem, -38.00rem + 54.69vw, 18rem);
     }
 
+    .mobile-period {
+        display: none; /* Turns off the mid-sentence period */
+    }
+
+    .desktop-text {
+        display: inline; /* Reveals the rest of the sentence */
+    }
+
     h1 {
         font-size: var(--fs-h1-tablet); 
         line-height: 1.28;
@@ -2035,23 +2052,24 @@ position: relative;
 ========================================= */
 @media (min-width: 1101px) {
 
-        /* =======================
+    /* =======================
         HEADER & NAVIGATION
     ==========================*/
 
 
-/* .header-inner {
-        border: 2px dashed blue;
+.header-inner {
+        /* border: 2px dashed blue; */
+        padding-top: 2rem;
     }
-    .site-header {
+    /* .site-header {
         border: 2px solid red;
     
-    }
- */
+    } */
+
     
 
     .container{
-        padding-inline: 4rem;
+        padding-inline: 0.1rem;
     }
 
     /* Your HTML order is Logo -> CTA -> Nav. 
@@ -2066,7 +2084,6 @@ position: relative;
     }
     
     .nav-cta { order: 1; }
-
     /* --- 2. Hide Mobile Elements --- */
     .menu-toggle {
         display: none;
@@ -2074,6 +2091,10 @@ position: relative;
 
     /* --- 3. Flatten the Navigation Container --- */
     .main-nav {
+        order: 2; 
+        flex: 1; /* Pushes Logo and CTA to the edges */
+        display: flex;
+        justify-content: center; /* Keeps the link block dead-center in the header */
         position: static; /* Removes absolute positioning */
         height: auto;
         
@@ -2081,21 +2102,18 @@ position: relative;
         background-color: transparent; 
         backdrop-filter: none;
         -webkit-backdrop-filter: none;
-        
-        /* Force it to always be visible and ignore mobile JS animation states */
         opacity: 1;
         visibility: visible;
         transform: none; 
-
-        border: 2px solid red
     }
 
     /* --- 4. Make the List Horizontal --- */
     .nav-list {
-        /* If your site is strictly LTR but you use Hebrew, row-reverse keeps 'בית' on the right */
         flex-direction: row; 
-        gap: clamp(2rem, 3vw, 4rem); /* Responsive spacing between links */
-        max-width: none;
+        width: 100%;
+        max-width: 44rem;
+        justify-content: space-between;
+        gap:0;
     }
 
     /* --- 5. Desktop Typography --- */
@@ -2105,7 +2123,118 @@ position: relative;
     }
     
     .btn-secondary {
-        padding: 1.6rem 2.4rem; /* Often looks better slightly wider on desktop */
+        padding: 2.8rem 3.6rem; /* Often looks better slightly wider on desktop */
+    }
+
+
+
+    /* ========================
+    HERO SECTION & BUBBLES
+    ===========================*/
+
+    .hero-section {
+        /* ⚠️ CRITICAL: This creates the boundaries for the absolute image */
+        position: relative;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 89vh;
+        padding-top: 0;
+
+        /* ⚠️ PREVENTS SCROLLING: Hides the part of the image that gets pushed off-screen */
+        overflow-x: hidden;
+        /* border: 2px solid red; */
+    }
+
+    .hero-content {
+        width: 50%;
+        text-align: right;
+        text-align: right;
+        /* border: 2px dashed blue; */
+        margin-top: -16rem;
+        margin-inline: 0;
+        padding-right: 3.6rem;
+    }
+
+    h1 {
+        font-size: 5.3rem;  
+    }
+
+    .hero-subtitle {
+        padding-inline: 0 12rem ;
+        padding-block: 3.6rem 5rem ;
+    }
+
+    /* 2. Button Row Setup */
+    .hero-buttons {
+        display: flex;
+        justify-content: flex-end ;
+        flex-direction: row-reverse;
+        gap: 4rem;
+        margin: 0;
+    }
+
+    .btn-primary,
+    .btn-secondary-outline 
+    { padding: 2.1rem 3.2rem }
+
+
+
+    .hero-visual {
+        position: absolute;
+        top: -30%; /* Pulls the image up under the header */
+        left: 16%;
+        transform: translateX(-50%);
+        width: 116rem;
+        z-index: -3; 
+        /* border: 2px dashed rgb(179, 0, 255); */
+    }
+
+    .hero-img{
+            aspect-ratio: 0.92 / 1;
+    }
+
+    /* --- Common Bubble Styles --- */
+    .google-bubble {
+        display: flex;
+        flex-direction: row; 
+        align-items: center;
+        gap: 1.2rem;
+        border-radius: 1.2rem;
+        
+        /* Rough desktop positioning - we will tweak this! */
+        top: 56%;
+        left: 50%;
+        padding: 1.2rem 2rem;
+        border-radius: 1.2rem 1.2rem 0 1.2rem;
+    }
+
+
+    .google-bubble span {
+        font-size: 1.4rem;
+        font-weight: 600;
+        color: var(--txt-color);
+    }
+
+    /* Reposition existing bubbles for Desktop */
+    .stats-bubble {
+        top: 40%;
+        right: 16%;
+    }
+
+    .whatsapp-bubble {
+        top: 60%;
+        left: 82%;
+        border-radius: 0 1.2rem 1.2rem 1.2rem;
+         padding-block: 1.4rem;
+         padding-inline: 1rem;
+    }
+
+    .badge-container {top: -3rem; }
+
+    .performance-bubble {
+        bottom: 20%;
+        right:9%;
     }
 
 
