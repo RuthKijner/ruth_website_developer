@@ -184,6 +184,21 @@ if (heroBtn && navBtn) {
     setTimeout(startPerformanceAnimation, 3500);
 
 
+
+    // --- PART 3: The Grand Finale (Google Checkmark) ---
+    
+    const startGoogleAnimation = () => {
+        const checkIcon = document.getElementById('google-check');
+        if (checkIcon) {
+            // Adds the CSS class that triggers the keyframe pop
+            checkIcon.classList.add('animate-check');
+        }
+    };
+
+    // Trigger this at 6800ms (Right after the 3000ms Performance gauges finish)
+    setTimeout(startGoogleAnimation, 6800);
+
+
 /* 
 ############################################
    Stacking Service Cards Animations

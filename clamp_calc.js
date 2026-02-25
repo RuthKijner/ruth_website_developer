@@ -1,5 +1,5 @@
-const minSize = 30;
-const maxSize = 32;
+const minSize = 0;
+const maxSize = 42;
 
 const minScreenWidth = 768;
 const maxScreenWidth = 1024;
