@@ -1,3 +1,7 @@
+/* =======================
+   GLOBAL UTILITIES
+==========================*/
+
 /*Use a more-intuitive box-sizing model */
 *, *::before, *::after { box-sizing: border-box; }
 
@@ -131,6 +135,12 @@ img {
   display: block; 
   height: auto; 
 }
+
+.container {
+    width: 100%;
+    max-width: 1440px;
+    margin-inline: auto;
+}
  
 
 
@@ -138,27 +148,43 @@ img {
 /* =======================
    HEADER & NAVIGATION
 ==========================*/
-.site-header {
+
+.header-inner {
     display: flex;
     flex-direction: row-reverse; 
     justify-content: space-between;
-    align-items: center;
+    align-items: center;    
+    /* Give it a minimum height so it doesn't collapse if elements load slowly */
+    /* min-height: 7rem;  */
+}
+
+.site-header {
+    width: 95%;
     margin: 0 auto;
     border-radius: 1.2rem;
-    padding-inline: 0.8rem;
-    width: 95%;
 
-    /* Sticky Positioning */
     position: sticky;
-    position: -webkit-sticky; /* Essential for Safari */
+    position: -webkit-sticky; 
     top: 0;
     z-index: 100;
 
-    /* Visuals */
+    background-color: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+}
+
+/* The Header's Glass Background */
+.site-header::before {
+    content: '';
+    position: absolute;
+    inset: 0; /* inset: 0 -> top: 0; right: 0; bottom: 0; left: 0; */
+    border-radius: 1.2rem;
+    z-index: -1; /* Puts the glass behind your logo and buttons */
+
+    /* ⚠️ MOVE the background color and blur to here! */
     background-color: rgba(252, 252, 255, 0.72);
     backdrop-filter: blur(42.8px);
     -webkit-backdrop-filter: blur(42.8px);
-
 }
 
 /* Secondary Button (Header) */
@@ -211,6 +237,7 @@ img {
     gap: 3.2rem;
     width: 100%; 
     max-width: 385px;
+
 }
 
 /* --- Mobile Navigation Container --- */
@@ -224,15 +251,17 @@ img {
     display: flex;
     align-items: center; 
     justify-content: center;
+    z-index: 90;
+    
+    /* Now the nav's blur will work perfectly! */
+    background-color: rgba(252, 252, 255, 0.72);
+    backdrop-filter: blur(42.8px);
+    -webkit-backdrop-filter: blur(42.8px);
+
     opacity: 0;
     visibility: hidden; 
     transform: translateY(-20px);
     transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
-    background-color: rgba(76, 14, 245, 1);
-    backdrop-filter: blur(42.8px);
-    -webkit-backdrop-filter: blur(42.8px);
-    box-shadow: 0 1rem 6rem rgba(26, 3, 90, 0.3);
-    z-index: 90;
 }
 
 .main-nav[data-visible="true"] {
@@ -244,7 +273,7 @@ img {
 .nav-link {
     font-size: var(--fs-h3-mobile);
     font-weight: 700;
-    color: var(--main-color);
+    color:var(--txt-color);
     text-decoration: none;
     transition: color 0.2s ease;
 }
@@ -612,7 +641,7 @@ padding-block: 1.7rem;
 
 .container {
     width: 100%;
-    max-width: 500px; 
+    padding-inline: 1.2rem;
     margin-inline: auto;
 }
 /* 1. The Wrapper is now the Sticky Boss */
@@ -863,7 +892,7 @@ padding-block: 1.7rem;
     overflow: hidden; /* Prevents decorative shapes from creating scrollbars */
     text-align: center;
     margin-top: -2.4rem;
-    padding-bottom: 13.5rem;
+    padding-bottom: 8rem;
 }
 
 .portfolio-header {
@@ -1395,50 +1424,34 @@ position: relative;
 
 #card-2 > h3 { color: #83D63F;}
 
-
 #card-2 > a.btn-plan { background-color: #60ae20;}
-
 
 #card-2 > div.plan-price { border-color: #83D63F;}
 
 
-
 #card-3 > h3 { color: var(--secondary-color);}
 
-
 #card-3 > a.btn-plan { background-color:var(--secondary-color);}
-
 
 #card-3 > div.plan-price { border-color:var(--secondary-color);}
 
 
 .plan-desc {
-
-font-size: 1.6rem;
-
-text-align: center;
-
-margin-block: 0.4rem 0.6rem;
-
+    font-size: 1.6rem;
+    text-align: center;
+    margin-block: 0.4rem 0.6rem;
 }
 
 
 .plan-price {
-
-font-size: 2.9rem;
-
-font-weight: 800;
-
-text-align: center;
-
-margin-bottom: 2rem;
-
-padding-bottom: clamp(1.8rem, -5.40rem + 20.00vw, 2.4rem);
-
-border-bottom: 4.8px solid #0ea5e9;
+    font-size: 2.9rem;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 2rem;
+    padding-bottom: clamp(1.8rem, -5.40rem + 20.00vw, 2.4rem);
+    border-bottom: 4.8px solid #0ea5e9;
 
 }
-
 
 
 .plan-includes-title {
@@ -1762,8 +1775,7 @@ border-bottom: 4.8px solid #0ea5e9;
     }
 
     .container{
-        max-width: 1000px;
-        padding-inline: clamp(0rem, -9.00rem + 11.72vw, 3rem);
+        padding-inline: clamp(3rem, 2.40rem + 0.78vw, 3.2rem);
     }
 
     .section-title{
@@ -1962,9 +1974,9 @@ border-bottom: 4.8px solid #0ea5e9;
 ==========================*/
 
 
-.pricing-section {
+    .pricing-section {
         overflow: visible; 
-        margin-top: 10rem;
+        margin-top: 4rem;
     }
 
     /* ⚠️ THE MAGIC: This freezes the Title, Subtitle, and Background Shape! */
@@ -1975,17 +1987,29 @@ border-bottom: 4.8px solid #0ea5e9;
         z-index: 10;
     }
 
-   .pricing-cards-stack {
+
+   .pricing-scroll-track {
         z-index: 20; 
+        margin-top: 4rem;
     }
 
     .pricing-title {
         font-size: var(--fs-h2-tablet);
     }
+    
+    .plan-desc {
+
+    margin-bottom: 1rem;
+    }
 
     .pricing-subtitle {
-        padding-inline: 12rem;
+        padding-inline: clamp(12rem, -6.00rem + 23.44vw, 18rem);
         font-size: 2.4rem;
+    }
+
+
+    .plan-features li{
+        font-size: var(--f);
     }
 
     .bg-shape-pricing {
@@ -2003,3 +2027,86 @@ border-bottom: 4.8px solid #0ea5e9;
 
 
 }        
+
+
+
+/* =========================================
+    DESKTOP LAYOUT (1101px and wider)
+========================================= */
+@media (min-width: 1101px) {
+
+        /* =======================
+        HEADER & NAVIGATION
+    ==========================*/
+
+
+/* .header-inner {
+        border: 2px dashed blue;
+    }
+    .site-header {
+        border: 2px solid red;
+    
+    }
+ */
+    
+
+    .container{
+        padding-inline: 4rem;
+    }
+
+    /* Your HTML order is Logo -> CTA -> Nav. 
+       We use flex 'order' to put the Nav in the middle without changing HTML! */
+    .logo { order: 3; }
+    
+    .main-nav { 
+        order: 2; 
+        flex: 1; /* Pushes the Nav to take up all the middle space */
+        display: flex;
+        justify-content: center; /* Centers the links perfectly */
+    }
+    
+    .nav-cta { order: 1; }
+
+    /* --- 2. Hide Mobile Elements --- */
+    .menu-toggle {
+        display: none;
+    }
+
+    /* --- 3. Flatten the Navigation Container --- */
+    .main-nav {
+        position: static; /* Removes absolute positioning */
+        height: auto;
+        
+        /* Strip away the mobile glass effect */
+        background-color: transparent; 
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        
+        /* Force it to always be visible and ignore mobile JS animation states */
+        opacity: 1;
+        visibility: visible;
+        transform: none; 
+
+        border: 2px solid red
+    }
+
+    /* --- 4. Make the List Horizontal --- */
+    .nav-list {
+        /* If your site is strictly LTR but you use Hebrew, row-reverse keeps 'בית' on the right */
+        flex-direction: row; 
+        gap: clamp(2rem, 3vw, 4rem); /* Responsive spacing between links */
+        max-width: none;
+    }
+
+    /* --- 5. Desktop Typography --- */
+    .nav-link {
+        font-size: 1.8rem; /* Scaled down slightly from the massive mobile headers */
+        font-weight: 500; /* Slightly thinner for an elegant desktop look */
+    }
+    
+    .btn-secondary {
+        padding: 1.6rem 2.4rem; /* Often looks better slightly wider on desktop */
+    }
+
+
+}

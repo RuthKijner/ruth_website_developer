@@ -309,219 +309,77 @@ aboutShapes.forEach(shape => {
 });
 
 
-
-
-
- /* ############################################
-
- Pricing Cards Scroll Animation (Pure Memory Tracker) 
-
+/* 
 ############################################
-
+  Pricing Cards Animations
+############################################
 */
 
-
-// ⚠️ THE FIX: A pure internal memory tracker. 
-
-// It guarantees the logic can NEVER skip a step or fire two cards at once.
-
-let activeState = 0; 
-
-let isLocked = false;
-
-const lockDuration = 900; 
-
-
-function evaluateCards() {
-
-    const track = document.querySelector('.pricing-scroll-track');
-
-    if (!track || isLocked) return;
-
-
-    const rect = track.getBoundingClientRect();
-
-    const vh = window.innerHeight;
-
-    const distanceScrolled = -rect.top;
-
-
-    const card1 = document.getElementById('card-1');
-
-    const card2 = document.getElementById('card-2');
-
-    const card3 = document.getElementById('card-3');
-
-    if (!card1 || !card2 || !card3) return;
-
-
-    // 1. TARGET: Where should the user be based on scroll depth?
-
-    let targetState = 0;
-
-    if (distanceScrolled > vh * 2.0) targetState = 2;      
-
-    else if (distanceScrolled > vh * 1) targetState = 1; 
-
-
-    // If we are already at the target, do nothing.
-
-    if (targetState === activeState) return;
-
-
-    // ==========================================
-
-    // 2. MOVE STRICTLY ONE SINGLE STEP AT A TIME
-
-    // ==========================================
-
-
-    if (targetState > activeState) {
-
-        // --- SCROLLING DOWN ---
-
-        
-
-        if (activeState === 0) {
-
-            // STEP 1: State 0 -> 1 (Card 1 flies back)
-
-            activeState = 1; 
-
-            
-
-            card1.classList.remove('bring-front');
-
-            card1.classList.add('send-back');
-
-            
-
-            card2.classList.remove('bring-front');
-
-            card2.classList.add('move-up'); 
-
-            card3.classList.add('move-up-half'); 
-
-            
-
-            triggerLock(); 
-
-            
-
-        } else if (activeState === 1) {
-
-            // STEP 2: State 1 -> 2 (Card 2 flies back)
-
-            activeState = 2; 
-
-            
-
-            card2.classList.remove('bring-front');
-
-            card2.classList.remove('move-up'); 
-
-            card2.classList.add('send-back');
-
-            
-
-            card3.classList.remove('move-up-half'); 
-
-            card3.classList.add('move-up-full'); 
-
-            
-
-            triggerLock(); 
-
-        }
-
-    } 
-
-    else if (targetState < activeState) {
-
-        // --- SCROLLING UP ---
-
-        
-
-        if (activeState === 2) {
-
-            // STEP 1: State 2 -> 1 (Card 2 returns)
-
-            activeState = 1; 
-
-            
-
-            card2.classList.remove('send-back');
-
-            card2.classList.add('bring-front');
-
-            card2.classList.add('move-up');
-
-            
-
-            card3.classList.remove('move-up-full');
-
-            card3.classList.add('move-up-half');
-
-            
-
-            triggerLock(); 
-
-            
-
-        } else if (activeState === 1) {
-
-            // STEP 2: State 1 -> 0 (Card 1 returns)
-
-            activeState = 0; 
-
-            
-
-            card1.classList.remove('send-back');
-
-            card1.classList.add('bring-front');
-
-            
-
-            card2.classList.remove('bring-front');
-
-            setTimeout(() => {
-
-                card2.classList.remove('move-up');
-
-                card3.classList.remove('move-up-half');
-
-            }, 50);
-
-            
-
-            triggerLock(); 
-
-        }
-
+// 1. Register the plugin so GSAP knows to listen to the scrollbar
+gsap.registerPlugin(ScrollTrigger);
+
+// ==========================================
+// 2. Set the 3D Deck Initial States
+// (This handles the scaling, brightness, and positioning)
+// ==========================================
+gsap.set("#card-1", { y: "0rem", scale: 1, filter: "brightness(1)", transformOrigin: "center center" });
+gsap.set("#card-2", { y: "3.5rem", scale: 0.95, filter: "brightness(0.92)", transformOrigin: "bottom center" });
+gsap.set("#card-3", { y: "7rem", scale: 0.90, filter: "brightness(0.85)", transformOrigin: "bottom center" });
+
+// ==========================================
+// 3. The Scroll Scrub Timeline
+// ==========================================
+const tl = gsap.timeline({
+    scrollTrigger: {
+        trigger: ".pricing-scroll-track",
+        start: "top top", // Starts when the scroll track hits the top of the screen
+        end: "bottom bottom", // Ends when the track runs out
+        scrub: 0.8, // MAGIC FIX: '1' adds a 1-second smoothing delay. If they flick hard, it smoothly catches up!
     }
+});
 
-}
+// --- PHASE 1: User scrolls -> Card 1 swipes up, Card 2 & 3 move forward ---
+// Note: We use the label "phase1" so all these movements happen at the exact same time
+// --- PHASE 1 ---
+tl.to("#card-1", { 
+    yPercent: -120,    
+    rotation: -4,      
+    ease: "power1.inOut", 
+    duration: 0.4 
+}, "phase1")
+// This line below handles the opacity separately
+.to("#card-1", { 
+    opacity: 0, 
+    duration: 0.1,    // A very fast fade
+    ease: "none" 
+}, "phase1+=0.3")     // 👈 This means: "Start 0.3 seconds into the 0.4 phase" (at the very end)
+
+.to("#card-2", { 
+    y: "0rem", scale: 1, filter: "brightness(1)", 
+    duration: 0.4  
+}, "phase1")
+.to("#card-3", { 
+    y: "3.5rem", scale: 0.95, filter: "brightness(0.92)", 
+    duration: 0.4  
+}, "phase1");
 
 
-// 3. THE VAULT DOOR LOCK
+// --- PHASE 2 ---
+tl.to("#card-2", { 
+    yPercent: -120, rotation: 4, 
+    ease: "power1.inOut", 
+    duration: 0.4 
+}, "phase2")
+.to("#card-2", { 
+    opacity: 0, 
+    duration: 0.1, 
+    ease: "none" 
+}, "phase2+=0.3")     // 👈 Starts the fade only when the card is nearly off-screen
 
-function triggerLock() {
-
-    isLocked = true; 
-
-    setTimeout(() => {
-
-        isLocked = false; 
-
-        // Force the code to re-check the scroll position ONLY after the animation is fully done
-
-        evaluateCards(); 
-
-    }, lockDuration);
-
-}
+.to("#card-3", { 
+    y: "0rem", scale: 1, filter: "brightness(1)", 
+    duration: 0.4  
+}, "phase2");
 
 
-// Listen for scrolling
 
-window.addEventListener('scroll', evaluateCards); 
