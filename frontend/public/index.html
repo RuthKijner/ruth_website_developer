@@ -456,10 +456,12 @@
 
     <section class="portfolio-section" id="portfolio" aria-labelledby="portfolio-title">
     
-        <img src="../assets/svg/outlined_hexagon.svg" alt="" class="shape-hex-outline" aria-hidden="true" width="100" height="100" loading="lazy">
-        <img src="../assets/svg/trasnparent_hexagon.svg" alt="" class="shape-hex-bg" aria-hidden="true" width="300" height="300" loading="lazy">
-
-        <div class="container">
+        <div class="container portfolio-inner">
+            
+            <img src="../assets/svg/outlined_hexagon.svg" alt="" class="shape-hex-outline" aria-hidden="true" width="100" height="100" loading="lazy">
+            <img src="../assets/svg/trasnparent_hexagon.svg" alt="" class="shape-hex-bg" aria-hidden="true" width="300" height="300" loading="lazy">
+            <img src="../assets/svg/behind_mocip.svg" alt="" class="shape-hex-behind-mockup" aria-hidden="true" loading="lazy">
+            <img src="../assets/svg/on_the_edge.svg" alt="" class="shape-hex-edge" aria-hidden="true" loading="lazy">
             
             <header class="portfolio-header">
                 <h2 id="portfolio-title" class="section-title">
@@ -520,80 +522,71 @@
         </div>
     </section>
 
-    <!-- <section class="cta-section" aria-labelledby="cta-title">
-        <div class="cta-container">
-        
-        <h2 id="cta-title" class="cta-title">
-           סקרנים לגלות איך אני יכולה לבנות לכם נכס דיגיטלי שגוגל יאהב להציג בראש התוצאות?
-        </h2>
-
-        <a href="#contact" class="btn-primary btn-cta" aria-label="מעבר ליצירת קשר לבניית נכס דיגיטלי">
-            <svg width="20" height="14" viewBox="0 0 20 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <path d="M7.16895 0.250977C7.51168 0.261629 7.81656 0.375652 8.07617 0.588867L8.18457 0.685547L8.19238 0.693359C8.45108 0.96958 8.59011 1.29946 8.60254 1.67285C8.61538 2.05963 8.46872 2.39749 8.18359 2.67578L5.22559 5.57324H17.9033C18.3023 5.57333 18.6495 5.70813 18.9277 5.98047C19.2063 6.25318 19.3457 6.59532 19.3447 6.99023C19.3438 7.3845 19.2039 7.72684 18.9268 8C18.6493 8.27327 18.3023 8.40676 17.9033 8.40527V8.40625H5.22559L8.18457 11.3027C8.46879 11.581 8.61438 11.9193 8.60254 12.3057C8.59107 12.6796 8.45117 13.0098 8.19141 13.2861L8.18457 13.293C7.90238 13.5692 7.5601 13.7173 7.16895 13.7295C6.77187 13.7418 6.42237 13.6028 6.13574 13.3223L0.682617 7.98535C0.400025 7.70876 0.25 7.37281 0.25 6.98926C0.250097 6.60586 0.400116 6.27064 0.682617 5.99414L6.13574 0.657227C6.42189 0.377155 6.77153 0.238733 7.16895 0.250977Z" fill="#FCFCFF" stroke="#FCFCFF" stroke-width="0.5"/>
-            </svg>
-            אני רוצה שתבני לי נכס דגיטלי
-        </a>
-
-        </div>
-    </section> -->
-
     <section class="about-section" id="about" aria-labelledby="about-title">
         
-        <img src="../assets/svg/above_head_transparent_shape.svg" alt="" aria-hidden="true" class="shape-hex-top" loading="lazy">
-        <img src="../assets/svg/behind_arm_shape.svg" alt="" aria-hidden="true" class="shape-hex-bottom" loading="lazy">
-        <img src="../assets/svg/near_title_shape_filled.svg" alt="" aria-hidden="true" class="shape-hex-mid" loading="lazy">
+        <div class="container about-inner">
 
-        <div class="container about-container">
+            <img src="../assets/svg/above_head_transparent_shape.svg" alt="" aria-hidden="true" class="shape-hex-top" loading="lazy">
+            <img src="../assets/svg/behind_arm_shape.svg" alt="" aria-hidden="true" class="shape-hex-bottom" loading="lazy">
+            <img src="../assets/svg/near_title_shape_filled.svg" alt="" aria-hidden="true" class="shape-hex-mid" loading="lazy">
             
-            <div class="about-visuals">
-                <img src="../assets/svg/above_head.svg" alt="" aria-hidden="true" class="shape-above-head" loading="lazy">
-                
-               <picture>
-                    <source 
-                        media="(min-width: 744px)" 
-                        type="image/avif"
-                        srcset="../assets/img/avif/about_me_tablet.avif"
-                        width="770"
-                        height="1570"
-                    >
+            <div class="about-content-grid">
+                <div class="about-visuals">
+                    <img src="../assets/svg/above_head.svg" alt="" aria-hidden="true" class="shape-above-head" loading="lazy">
                     
-                    <img 
-                        src="../assets/img/avif/about_me_img.avif" 
-                        alt="רות לוין - מפתחת אתרים ומומחית לאוטומציה עסקית" 
-                        class="about-img" 
-                        width="1519" 
-                        height="1497" 
-                        loading="lazy"
-                    >
-                </picture>
-            </div>
+                <picture>
+                        <source 
+                            media="(min-width: 1101px)" 
+                            type="image/avif"
+                            srcset="../assets/img/avif/about_me_desktop.avif"
+                            width="2308"
+                            height="2416"
+                        >
+                        
+                        <source 
+                            media="(min-width: 744px)" 
+                            type="image/avif"
+                            srcset="../assets/img/avif/about_me_tablet.avif"
+                            width="770"
+                            height="1570"
+                        >
+                        
+                        <img 
+                            src="../assets/img/avif/about_me_img.avif" 
+                            alt="רות לוין - מפתחת אתרים ומומחית לאוטומציה עסקית" 
+                            class="about-img" 
+                            width="1519" 
+                            height="1497" 
+                            loading="lazy"
+                        >
+                    </picture>
+                </div>
 
-            <div class="about-content">
-                <span class="bg-text-giant" aria-hidden="true">קצת עלי</span>
-                
-                <img src="../assets/svg/above_title.svg" alt="" aria-hidden="true" class="shape-above-title" loading="lazy">
-                
-                <h2 id="about-title" class="about-title">נעים להכיר, אני רות לוין.</h2>
-                
-                <div class="about-text">
-                    <p>
-                        כבעלת עסק, אני מבינה שהמדד האמיתי להצלחה הוא השורה התחתונה: <strong>לידים וצמיחה.</strong>
-                    </p>
-                    <p>
-                        המון עסקים מצוינים נתקעים ב״תקרת זכוכית״, פשוט כי האתר שלהם פשוט באוויר, ואין להם מערכות או כלים אסטרטגיים שבאמת עובדים עבורם.
-                    </p>
-                    <p>
-                        התשוקה שלי היא לרתום את הטכנולוגיה והשיווק כדי לבנות נכס דיגיטלי שיעבוד עבור העסק שלכם 24/7 ויחסוך לכם זמן יקר בניהול השוטף, <strong>כדי שתוכלו להתפנות למה שבאמת חשוב!</strong>
-                    </p>
+                <div class="about-content">
+                    <span class="bg-text-giant" aria-hidden="true">קצת עלי</span>
+                    
+                    <img src="../assets/svg/above_title.svg" alt="" aria-hidden="true" class="shape-above-title" loading="lazy">
+                    
+                    <h2 id="about-title" class="about-title">נעים להכיר, אני רות לוין.</h2>
+                    
+                    <div class="about-text">
+                        <p>
+                            כבעלת עסק, אני מבינה שהמדד האמיתי להצלחה הוא השורה התחתונה: <strong>לידים וצמיחה.</strong>
+                        </p>
+                        <p>
+                            המון עסקים מצוינים נתקעים ב״תקרת זכוכית״, פשוט כי האתר שלהם פשוט באוויר, ואין להם מערכות או כלים אסטרטגיים שבאמת עובדים עבורם.
+                        </p>
+                        <p>
+                            התשוקה שלי היא לרתום את הטכנולוגיה והשיווק כדי לבנות נכס דיגיטלי שיעבוד עבור העסק שלכם 24/7 ויחסוך לכם זמן יקר בניהול השוטף, <strong>כדי שתוכלו להתפנות למה שבאמת חשוב!</strong>
+                        </p>
+                    </div>
                 </div>
             </div>
-            
         </div>
     </section>
 
-    
     <section class="pricing-section" id="pricing" aria-labelledby="pricing-title">    
-        <div class="pricing-container">
+        <div class="container pricing-inner">
             
             <div class="pricing-sticky-group">
                 <img src="../assets/svg/pricing_hexagon.svg" alt="" aria-hidden="true" class="bg-shape-pricing" loading="lazy">

@@ -154,7 +154,9 @@ img {
     flex-direction: row-reverse; 
     justify-content: space-between;
     align-items: center;  
-    padding-inline: 1.2rem;  
+    padding-inline: 1.2rem; 
+    padding-block: 1rem;
+     
 }
 
 .site-header {
@@ -859,7 +861,6 @@ padding-block: 1.7rem;
     align-items: center; /* Aligns checkmark with top line of text */
     gap: 1.2rem;
     text-align: right;
-    direction: rtl; /* Ensures Hebrew flows correctly */
 }
 
 .benefit-text {
@@ -868,7 +869,7 @@ padding-block: 1.7rem;
     color: var(--txt-color);
     line-height: 1.4;
     font-weight: 500;
-    padding-left:3rem;
+    
 }
 
 
@@ -899,16 +900,32 @@ padding-block: 1.7rem;
      PORTFOLIO SECTION
 ==========================*/
 
+.shape-hex-behind-mockup,
+.shape-hex-edge {
+    display: none; /* Hidden on mobile to keep the layout clean */
+    position: absolute;
+    pointer-events: none; /* Ensures they don't block clicks on the mockups */
+    z-index: -1; /* Keeps t=hem behind your mockups (which are z-index: 1 or 2) */
+}
+
+
 .portfolio-section {
     position: relative;
     overflow: hidden; /* Prevents decorative shapes from creating scrollbars */
-    text-align: center;
     margin-top: -2.4rem;
-    padding-bottom: 8rem;
+}
+
+/* 2. The Content Cushion (Your new class!) */
+.portfolio-inner {
+    position: relative;
+    z-index: 2;
+    text-align: center;   /* Centers the title and mobile content */
+    padding-bottom: 8rem; /* Holds the bottom spacing for the content */
 }
 
 .portfolio-header {
     position: relative;
+    z-index: 2;
     margin-bottom: var(--space-52);
     z-index: 2;
 }
@@ -921,7 +938,7 @@ padding-block: 1.7rem;
     transform: translateX(-50%);
     width: 100%;
     max-width: 110px;
-    z-index: 0;
+    z-index: -2;
     pointer-events: none;
 }
 
@@ -929,7 +946,7 @@ padding-block: 1.7rem;
     position: absolute;
     top: 3%;
     width:100%;
-    z-index: 0;
+    z-index: -2;
     pointer-events: none;
 }
 
@@ -1190,17 +1207,27 @@ pointer-events: none; */
 .shape-hex-mid,
 .bg-text-giant {
     display: none; 
+    position: absolute;
+    pointer-events: none; 
+    z-index: -1; /* This pushes them to the back of .about-inner */
 }
 
 .about-section {
     position: relative;
     overflow: hidden; 
     z-index: 1;
-    position: relative;
 }
 
-.about-container {
+/* 2. Your NEW class that anchors the shapes to the 1440px box */
+.about-inner {
+    position: relative; 
+    z-index: 2; 
+}
+
+/* 3. Replaces your old .about-container */
+.about-content-grid {
     max-width: 800px;
+    margin-inline: auto; /* Centers your content */
 }
 
 /* --- Visuals Wrapper --- */
@@ -1331,10 +1358,18 @@ position: relative;
 
 .pricing-section {
     position: relative;
-    padding-top: var(--space-64);
     z-index: 1;
     text-align: center;
 }
+
+.pricing-inner {
+    position: relative;
+    z-index: 2;
+    padding-top: var(--space-64); /* Pushes content down safely */
+    text-align: center;           /* Centers all the text */
+}
+
+/* --- Decorative Shapes --- */
 
 
 .bg-shape-pricing {
@@ -1527,12 +1562,8 @@ position: relative;
         HEADER & NAVIGATION
     ==========================*/
 
-    /* =======================
-        HEADER & NAVIGATION
-    ==========================*/
-
-    .site-header {
-        padding-block: 1rem;
+    .header-inner{
+        padding-block: 1.2rem;
     }
 
     .hero-content {
@@ -1657,8 +1688,7 @@ position: relative;
     /* =======================
         Services Section
     ==========================*/
-
-    .services-section .container { max-width: 1000px; }
+    .services-section .container {  max-width: 1000px;  }
 
     .services-section .section-title{
         font-size: var(--fs-h2-tablet); 
@@ -1671,22 +1701,14 @@ position: relative;
          line-height: 1.5;
     }
 
-    .benefits-list{
-        gap: 2rem;
-    }
+    .benefits-list{ gap: 2rem; }
 
     .service-card:nth-of-type(1) .benefits-list,
     .service-card:nth-of-type(3) .benefits-list,
     .service-card:nth-of-type(4) .benefits-list
-    {
-    padding-left: clamp(0rem, -12.00rem + 15.63vw, 4rem);
-    }
+    { padding-left: clamp(0rem, -12.00rem + 15.63vw, 4rem); }
 
-
-    .benefit-item {
-        gap: 1.8rem;
-    }
-
+    .benefit-item { gap: 1.8rem; }
 
     .service-card {
         display: flex;
@@ -1694,7 +1716,7 @@ position: relative;
         align-items: center; /* THE MAGIC FIX: Perfectly vertically centers the image with the text */
         justify-content: space-between;
         gap: clamp(10rem, -20.00rem + 39.06vw, 20rem);
-        padding-inline:clamp(3.2rem, 0.80rem + 3.13vw, 4rem);
+        padding-inline:clamp(2.8rem, -0.80rem + 4.69vw, 4rem);
         padding-block: 6rem;
         margin-bottom: 20rem;
         top: 30rem; /* Adjusts the sticky stack height for the larger screen */
@@ -1702,11 +1724,9 @@ position: relative;
 
     /* 3. Reverse the Even Cards (Cards 2 & 4) */
     .service-card:nth-of-type(even) {
-        flex-direction: row-reverse; /* RTL: Image sits Left, Text sits Right */
+        flex-direction: row-reverse; 
     }
 
-
-    /* Make sure text aligns nicely inside its half */
     .card-content {
         flex: 1; 
         min-width: 0; 
@@ -1715,15 +1735,12 @@ position: relative;
         padding-block: 6rem;
     }
 
-
-
     .card-title {
         font-size: var(--fs-h3-tablet); /* Scales up the title for tablet */
         margin-bottom: 3.6rem;
     }
 
     .card-visual {
-        /* Optional: Adding this helps prevent images from breaking out */
         display: flex;
         justify-content: center;
     }
@@ -1757,17 +1774,15 @@ position: relative;
 /* --- 6. The Purple Background Blobs --- */
     .card-bg-shape {
         top: clamp(17rem, 14.00rem + 3.91vw, 18rem);
+        right: clamp(10rem, 4.00rem + 7.81vw, 12rem);
         transform: translateY(-50%);
         height: clamp(54rem, 42.00rem + 15.63vw, 58rem);
         width: auto;
-        aspect-ratio: 1 / 1; /* Keeps the original proportions of the SVG */
+        /* aspect-ratio: 1 / 1;  */
         overflow: visible;
         
     }
 
-    .service-card .card-bg-shape {
-        right: clamp(3rem, -24.00rem + 35.16vw, 12rem);
-    }
 
 
 
@@ -1775,23 +1790,16 @@ position: relative;
     PORTFOLIO SECTION
 ==========================*/
 
-    .portfolio-section{
-        margin-top: -8.8rem;
+    .portfolio-section{ margin-top: -8.8rem; }
+    
+    .portfolio-inner{
+        padding-inline:clamp(0rem, -12.60rem + 16.41vw, 4.2rem);
         padding-bottom: 20rem;
     }
-
-    .portfolio-header{
-      margin-bottom: var(--space-64);  
-    }
-
-    .portfolio-section .container{
-        padding-inline:clamp(0rem, -12.60rem + 16.41vw, 4.2rem);
-    }
-
-    .section-title{
-        padding: 0;
-    }
-
+    
+    .portfolio-header{ margin-bottom: var(--space-64);  }
+    
+    .portfolio-section .section-title { padding: 0; }
 
     .shape-hex-bg {
         transform: rotate(180deg); 
@@ -1874,22 +1882,15 @@ position: relative;
 .shape-hex-top,
 .shape-hex-bottom,
 .shape-hex-mid,
-.bg-text-giant {
-    display: block;
-    position: absolute;
-    pointer-events: none; 
-}
+.bg-text-giant { display: block; }
 
 .about-section {
-        /* Pulls the ENTIRE section up into the Portfolio section */
-        margin-top: -15rem; 
-        
-        /* Pushes the content back down, creating a 15rem "safe zone" at the top */
+        margin-top: -12rem; 
         padding-top: 15rem; 
         
     }
 
-.about-container {
+    .about-content-grid {
         display: flex;
         flex-direction: row; /* RTL Layout: Image Left, Text Right */
         align-items: center; /* Vertically centers the text with the image */
@@ -1897,8 +1898,8 @@ position: relative;
         max-width: 1000px; /* Match your other sections */
         gap: 12rem;
         padding-bottom:16rem; /*6*/
-        /* border: 2px solid red; */
     }
+
     .about-visuals {
         flex: 1;
         padding-top: 0; /* Reset mobile padding */
@@ -1947,7 +1948,7 @@ position: relative;
     
     /* Adjust these clamp values based on your exact layout preferences! */
     .shape-hex-top {
-        top: clamp(10rem, 18.00rem + -7.81vw, 12rem);
+        top: clamp(-6.2rem, 5.80rem + -11.72vw, -3.2rem);
         right: 18rem;
         width: 4rem;
         z-index: 3;
@@ -1958,10 +1959,11 @@ position: relative;
         right: 0; /* Behind the arm on the far left edge */
         width: 5.6rem;
         z-index: 0; 
+        
     }
 
     .shape-hex-mid {
-        top: clamp(34rem, 22.00rem + 15.63vw, 38rem);
+        top: clamp(16rem, -20.00rem + 46.88vw, 28rem);
         right:clamp(37rem, 14.50rem + 29.30vw, 44.5rem);
         width: 2rem;
         z-index: 3;
@@ -1974,9 +1976,8 @@ position: relative;
 
     .shape-above-head{
         top: -10rem; /*-0*/
-        right: clamp(-5rem, 11.00rem + -15.63vw, -1rem); /*-1*/
-        width: 2rem;  
-
+        right:clamp(-1.6rem, 0.80rem + -2.34vw, -1rem);
+        width: 2rem; 
     }
 
 
@@ -2281,14 +2282,12 @@ width: 100%;
     /* =======================
         SERVICES Cards
     ==========================*/
-    .services-section{
-        padding-top: 0;
-        margin-top: -2rem;
+    .services-section .container { 
+        max-width: 1100px; 
     }
 
-    .section-title {
-        padding-bottom: 3.2rem;
-        
+    .services-section .section-title{
+        padding-bottom: 4rem;
     }
 
     .section-title > br{
@@ -2300,8 +2299,8 @@ width: 100%;
         top: 15vh;
     }
 
-        .progress-track{
-        max-width: 28%; /* Scales up the progress bar for tablet */
+    .progress-track{
+        max-width: 26%; /* Scales up the progress bar for tablet */
     }
 
 
@@ -2309,14 +2308,162 @@ width: 100%;
         /* Sits the cards perfectly under the centered title */
         top: 32vh;
 
-
         /* ⚠️ THIS CONTROLS THE "LOCK" DURATION */
         /* 40vh means the user has to scroll exactly 40% of their screen height to trigger the next card.
            Increase this to 60vh if you want them locked in the section longer! */
-        margin-bottom: 30vh;
+        margin-bottom: 28vh;
 
     }
 
+    .card-bg-shape {
+        top: 15rem;
+        right: 10rem;
+        height: 133rem;
+    }
+
+
+    .benefit-text{
+        line-height: 1.7;
+        font-size: 1.8rem;
+    }
+
+
+
+    .img-res-1 { 
+        margin-top: 5rem;
+    } 
+
+
+    .img-res-2 { 
+        flex: 0 0 40rem; /* Now it can finally grow massive! */
+         margin-top: 6rem;
+    } 
+
+    .img-res-3 { 
+        flex: 0 0 40rem;
+        margin-top: 8rem;
+    } 
+
+   .img-res-4 { 
+      
+         margin-left: 10rem;
+    }
+
     
+/* =======================
+    PORTFOLIO SECTION
+==========================*/
+
+   /* Reveal the shapes */
+    .shape-hex-behind-mockup,
+    .shape-hex-edge {
+        display: block; 
+    }
+
+
+.portfolio-section {  margin-top: -18rem;}
+.section-title { font-size: 4.4rem; }
+.case-role{ font-size: 1.6rem; }
+.case-description, .btn-primary{ font-size: 1.8rem; }
+.case-description{ line-height: 1.7; }
+
+.mockup-composite{ flex: 0 0 50rem; }
+.case-study-card{ 
+    gap: 26rem;
+    padding-top: 6rem;;
+
+}
+
+.shape-hex-bg {
+    width: 130rem;
+    left: -52rem;
+    top:-50rem;
+}
+
+    .shape-hex-outline {
+    max-width: 19rem;
+    top:16%;
+    left: 25%;
+}
+
+    .shape-hex-small{
+    width: 2rem;
+    top: 8rem; 
+}
+
+    .shape-hex-behind-mockup {
+        width: 8.3rem; 
+        height: auto;
+        top: 33rem; 
+        left: 51rem;    
+}
+
+    /* 2. The Small Shape on the Edge */
+    .shape-hex-edge {
+        width: 2.4rem; 
+        height: auto;
+        top: 44rem; 
+        left: 69rem; 
+        animation: breatheShape 4s ease-in-out infinite alternate 1s;   
+}
+
+
+/* =======================
+   About Me Section
+==========================*/
+    .about-section{margin-top: -14rem;}
+
+    .about-content-grid{
+    width: 100%;
+    max-width: 140rem;
+    }
+
+    .about-content-grid{
+        padding-bottom: 22rem;
+        padding-inline: 4rem;
+        grid-area: 2rem;
+        gap: 18rem;  
+    }
+    
+    .about-img {
+        aspect-ratio: 0.95 / 1;
+        width: 112rem;
+        left:-10rem;
+    }
+
+    .bg-text-giant{ font-size: 13rem; }
+    .about-title{ 
+        font-size: 3.2rem; 
+        padding-block: 20rem 2rem;
+    }
+
+    .about-text p{
+        font-size: 1.8rem;
+        line-height: 1.7;
+    }
+
+    .about-content {
+         max-width: 54rem;
+         padding-top: 28rem;
+    }
+
+    .about-text p { margin-bottom: 1.9rem; }
+
+    .shape-above-head{
+        width: 2.4rem;  
+        top: 6rem;
+        right: -4rem;
+    }
+
+    .shape-hex-mid {
+        top: 44rem;
+        right: 70rem; 
+        width: 2.4rem; 
+    }
+
+    .shape-hex-top {
+        top:3rem;
+        right: 30rem;
+    }
 
 }

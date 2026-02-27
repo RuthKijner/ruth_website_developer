@@ -245,7 +245,7 @@ const cards = document.querySelectorAll('.service-card');
 
     }, { passive: true });
 
-
+    
 /* 
 ############################################
   Portfolio mockups Animations
@@ -330,8 +330,13 @@ aboutShapes.forEach(shape => {
 ############################################
 */
 
+
 // 1. Register the plugin so GSAP knows to listen to the scrollbar
 gsap.registerPlugin(ScrollTrigger);
+
+// 2. Create the GSAP Media Query logic
+let pricingMm = gsap.matchMedia();
+pricingMm.add("(max-width: 1100px)", () => {
 
 // ==========================================
 // 2. Set the 3D Deck Initial States
@@ -397,4 +402,5 @@ tl.to("#card-2", {
 }, "phase2");
 
 
+});
 

@@ -43,7 +43,7 @@ imagesFiles.forEach(async (file) => {
             try{
             // # The Actual Conversion: Sharp takes the "Source Address", 
             // crunches the data, and saves it to the "Destination Address".
-                await sharp(filePath).avif({ quality: 65 }).toFile(FilePath);
+                await sharp(filePath).avif({ quality: 40 }).toFile(FilePath);
                 console.log(`✅ Converted to: ${newExtensionName}`);
 
             }catch(error){
