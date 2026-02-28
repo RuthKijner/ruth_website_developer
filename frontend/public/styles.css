@@ -1637,7 +1637,7 @@ position: relative;
         height: auto;
     }
 
-    /* --- Common Bubble Styles --- */
+/* --- Common Bubble Styles --- */
 
     /* --- Bubble 1: Stats --- */
     .stats-bubble{
@@ -1647,12 +1647,15 @@ position: relative;
     }
 
     .bubble-title {
-        font-size: 1.4rem;
+        font-size: 1.6rem;
     }
 
-    .stats-number {
+    .stats-number,
+    .stats-growth
+    {
         font-size: 1.8rem;
     }
+
 
     /* --- Bubble 2: WhatsApp --- */
     .whatsapp-bubble{
@@ -1664,6 +1667,7 @@ position: relative;
     .whatsapp-text{
         font-size: 1.6rem;
     }
+
 
     /* --- Bubble 3: Performance --- */
     .performance-bubble {
@@ -1690,7 +1694,7 @@ position: relative;
     ==========================*/
     .services-section .container {  max-width: 1000px;  }
 
-    .services-section .section-title{
+    .section-title{
         font-size: var(--fs-h2-tablet); 
         padding-bottom: 3.2rem;
     }
@@ -2120,12 +2124,16 @@ width: 100%;
         padding: 2.8rem 3.6rem; /* Often looks better slightly wider on desktop */
     }
 
+}
 
+
+
+@media (min-width: 1200px) {
 
     /* ========================
     HERO SECTION & BUBBLES
     ===========================*/
-        .mobile-period {
+    .mobile-period {
         display: none; /* Turns off the mid-sentence period */
     }
 
@@ -2133,48 +2141,41 @@ width: 100%;
         display: inline; /* Reveals the rest of the sentence */
     }
 
-
-/* 1. The Infinite Outer Layer */
     .hero-section {
-        /* Keep this to hide the chopped image edge without creating scrollbars */
         overflow-x: hidden; 
         padding-top: 0;
-        /* border: 2px solid rgb(43, 0, 255); */
     }
 
     /* 2. The Locked 1440px Anchor Layer */
     .hero-inner {
-        /* ⚠️ THE MAGIC FIX: This locks the absolute image inside the 1440px box */
         position: relative; 
-        
-        /* Your flex layout moves here */
         display: flex;
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
-        min-height: 88vh;
-        /* border: 2px solid red; */
+        min-height: clamp(76vh, calc(76vh + 50vw - 600px), 88vh); /*88vh*/
     }
 
     .hero-content {
         width: 50%;
         text-align: right;
-        margin-top: -16rem;
+        margin-top: -32rem;
         margin-inline: 0;
-        padding-right: 3.6rem;
-        
-        /* Keep the text clickable above the image */
+        padding-right: clamp(2.4rem, -3.60rem + 5.00vw, 3.6rem);
         position: relative;
         z-index: 2;
     }
 
     h1 {
-        font-size: 5.3rem;  
+        font-size: clamp(4.8rem, 2.30rem + 2.08vw, 5.3rem);
+        padding-left: clamp(2rem, 12.00rem + -8.33vw, 0rem);
     }
 
     .hero-subtitle {
-        padding-inline: 0 12rem ;
+        padding-right: 0;
+        padding-left: clamp(8rem, -12.00rem + 16.67vw, 12rem);
         padding-block: 3.6rem 5rem ;
+        font-size: clamp(2.1rem, 0.60rem + 1.25vw, 2.4rem);
     }
 
     /* 2. Button Row Setup */
@@ -2182,22 +2183,23 @@ width: 100%;
         display: flex;
         justify-content: flex-end ;
         flex-direction: row-reverse;
-        gap: 4rem;
+        gap: clamp(2rem, -8.00rem + 8.33vw, 4rem);
         margin: 0;
     }
 
     .btn-primary,
     .btn-secondary-outline 
-    { padding: 2.1rem 3.2rem }
+    { 
+       padding: clamp(2rem, 1.50rem + 0.42vw, 2.1rem) clamp(2.1rem, -1.40rem + 2.92vw, 2.8rem);
 
-
+    }
 
     .hero-visual {
         position: absolute;
-        top: -30%; /* Pulls the image up under the header */
+        top: -32%; /* Pulls the image up under the header */
         left: 16%;
         transform: translateX(-50%);
-        width: 116rem;
+        width: clamp(97rem, 2.00rem + 79.17vw, 116rem);
         z-index: -3; 
         /* border: 2px dashed rgb(179, 0, 255); */
     }
@@ -2206,7 +2208,8 @@ width: 100%;
             aspect-ratio: 0.92 / 1;
     }
 
-    /* --- Common Bubble Styles --- */
+/* --- Common Bubble Styles --- */
+
     .google-bubble {
         display: flex;
         flex-direction: row-reverse; 
@@ -2216,14 +2219,13 @@ width: 100%;
         
         /* Rough desktop positioning - we will tweak this! */
         top: 56%;
-        left: 48%;
-        padding: 1.2rem 2rem;
+        left: clamp(45rem, -10.00rem + 45.83vw, 56rem);
+        padding: clamp(1rem, 0.00rem + 0.83vw, 1.2rem) clamp(1.6rem, -0.40rem + 1.67vw, 2rem); /*1.2rem 2rem*/
         border-radius: 1.2rem 1.2rem 0 1.2rem;
     }
 
-
     .google-bubble span {
-        font-size: 1.6rem;
+        font-size: clamp(1.4rem, 0.40rem + 0.83vw, 1.6rem);
         font-weight: 600;
         color: var(--txt-color);
     }
@@ -2260,24 +2262,47 @@ width: 100%;
 
     /* Reposition existing bubbles for Desktop */
     .stats-bubble {
-        top: 40%;
-        right: 16%;
+        top: clamp(40rem, -5.00rem + 37.50vw, 49rem);
+        right: clamp(13rem, -2.00rem + 12.50vw, 16rem);
     }
+
+    .stats-number,
+    .stats-growth
+    {
+        font-size:clamp(1.6rem, 0.60rem + 0.83vw, 1.8rem);
+    }
+
+    .bubble-title {
+        font-size: clamp(1.4rem, 0.40rem + 0.83vw, 1.6rem);
+    }
+
 
     .whatsapp-bubble {
         top: 60%;
         left: 82%;
         border-radius: 0 1.2rem 1.2rem 1.2rem;
-         padding-block: 1.4rem;
-         padding-inline: 1rem;
+        padding: 1.4rem;
+   
+    }
+
+    .whatsapp-text{
+        font-size: clamp(1.4rem, 0.40rem + 0.83vw, 1.6rem);
     }
 
     .badge-container {top: -3rem; }
 
     .performance-bubble {
-        bottom: 20%;
-        right:9%;
+        bottom: clamp(20rem, -5.00rem + 20.83vw, 25rem);
+        right:clamp(4rem, -26.00rem + 25.00vw, 10rem);
     }
+
+       .gauge-circle {
+        font-size: clamp(1.3rem, 0.80rem + 0.42vw, 1.4rem);
+        width: clamp(4rem, 4.00rem + 0.00vw, 4rem);
+        height: clamp(4rem, 4.00rem + 0.00vw, 4rem);
+        margin-block: 0.8rem 0.4rem;
+    }
+
 
     /* =======================
         SERVICES Cards
@@ -2286,8 +2311,8 @@ width: 100%;
         max-width: 1100px; 
     }
 
-    .services-section .section-title{
-        padding-bottom: 4rem;
+    .section-title{
+        padding-bottom: clamp(4rem, 2.00rem + 1.67vw, 4.4rem);
     }
 
     .section-title > br{
@@ -2321,6 +2346,10 @@ width: 100%;
         height: 133rem;
     }
 
+
+     .card-title {
+        font-size: clamp(3rem, 2.00rem + 0.83vw, 3.2rem); /* Scales up the title for tablet */
+    }
 
     .benefit-text{
         line-height: 1.7;
@@ -2356,54 +2385,54 @@ width: 100%;
 
    /* Reveal the shapes */
     .shape-hex-behind-mockup,
-    .shape-hex-edge {
-        display: block; 
+    .shape-hex-edge { display: block; }
+    .portfolio-section {  margin-top: -18rem;}
+    .section-title { 
+        font-size: clamp(4rem, 2.00rem + 1.67vw, 4.4rem); 
     }
 
+    .case-role{ font-size: 1.6rem; }
+    .case-description, .btn-primary{ font-size: 1.8rem; }
+    .case-description{ line-height: 1.7; }
 
-.portfolio-section {  margin-top: -18rem;}
-.section-title { font-size: 4.4rem; }
-.case-role{ font-size: 1.6rem; }
-.case-description, .btn-primary{ font-size: 1.8rem; }
-.case-description{ line-height: 1.7; }
+    .mockup-composite{ 
+        flex: 0 0 clamp(44rem, 14.00rem + 25.00vw, 50rem);; 
+    }
 
-.mockup-composite{ flex: 0 0 50rem; }
-.case-study-card{ 
-    gap: 26rem;
-    padding-top: 6rem;;
+    .case-study-card{ 
+        gap: clamp(18rem, -22.00rem + 33.33vw, 26rem);
+        padding-top: 6rem;;
+    }
 
-}
-
-.shape-hex-bg {
-    width: 130rem;
-    left: -52rem;
-    top:-50rem;
-}
+    .shape-hex-bg {
+        width: clamp(105rem, -20.00rem + 104.17vw, 130rem);
+        left: clamp(-52rem, 8.00rem + -41.67vw, -42rem);
+        top:clamp(-50rem, 70.00rem + -83.33vw, -30rem);
+    }
 
     .shape-hex-outline {
-    max-width: 19rem;
-    top:16%;
-    left: 25%;
-}
+        max-width: clamp(17rem, 7.00rem + 8.33vw, 19rem);
+        top:clamp(12rem, 18.00rem + -4.17vw, 13rem);
+        left: clamp(28rem, 13.00rem + 12.50vw, 31rem);
+    }
 
     .shape-hex-small{
-    width: 2rem;
-    top: 8rem; 
-}
+        width: clamp(1.8rem, 0.80rem + 0.83vw, 2rem);
+        top: 8rem;
+    }
 
     .shape-hex-behind-mockup {
-        width: 8.3rem; 
+        width: clamp(7rem, 0.50rem + 5.42vw, 8.3rem);
         height: auto;
-        top: 33rem; 
-        left: 51rem;    
+        top: clamp(30rem, 15.00rem + 12.50vw, 33rem);
+        left: clamp(46rem, 21.00rem + 20.83vw, 51rem);
 }
 
-    /* 2. The Small Shape on the Edge */
     .shape-hex-edge {
-        width: 2.4rem; 
+        width: clamp(2rem, 0.00rem + 1.67vw, 2.4rem);
         height: auto;
         top: 44rem; 
-        left: 69rem; 
+        left: clamp(55.8rem, -10.20rem + 55.00vw, 69rem);
         animation: breatheShape 4s ease-in-out infinite alternate 1s;   
 }
 
@@ -2411,29 +2440,32 @@ width: 100%;
 /* =======================
    About Me Section
 ==========================*/
-    .about-section{margin-top: -14rem;}
-
-    .about-content-grid{
-    width: 100%;
-    max-width: 140rem;
+    .about-section{
+        margin-top: clamp(-18rem, -28.00rem + 8.33vw, -16rem);
+        /*clamp(-18rem, -33.00rem + 12.50vw, -15rem)*/
     }
 
     .about-content-grid{
+        width: 100%;
+        max-width: 140rem;
         padding-bottom: 22rem;
         padding-inline: 4rem;
         grid-area: 2rem;
-        gap: 18rem;  
+        gap: 18.5rem;  
     }
     
     .about-img {
         aspect-ratio: 0.95 / 1;
-        width: 112rem;
-        left:-10rem;
+        width: clamp(106rem, 76.00rem + 25.00vw, 112rem);
+        left:clamp(-10rem, -4.00rem + -4.17vw, -9rem);
     }
 
-    .bg-text-giant{ font-size: 13rem; }
+    .bg-text-giant{ 
+        font-size: clamp(12rem, 7.00rem + 4.17vw, 13rem);
+    }
+
     .about-title{ 
-        font-size: 3.2rem; 
+        font-size: clamp(3rem, 1.50rem + 1.25vw, 3.3rem);
         padding-block: 20rem 2rem;
     }
 
@@ -2445,6 +2477,8 @@ width: 100%;
     .about-content {
          max-width: 54rem;
          padding-top: 28rem;
+         padding-left: 5.2rem;
+       
     }
 
     .about-text p { margin-bottom: 1.9rem; }
@@ -2452,18 +2486,109 @@ width: 100%;
     .shape-above-head{
         width: 2.4rem;  
         top: 6rem;
-        right: -4rem;
+        right: clamp(-7rem, -22.00rem + 12.50vw, -4rem);
     }
 
     .shape-hex-mid {
         top: 44rem;
-        right: 70rem; 
-        width: 2.4rem; 
+        right: clamp(54rem, -26.00rem + 66.67vw, 70rem);
+        width: clamp(2rem, 4.40rem + -1.67vw, 2.4rem);
+        animation: breatheShape 4s ease-in-out infinite alternate 1s; 
+        
     }
 
     .shape-hex-top {
-        top:3rem;
-        right: 30rem;
+        top: clamp(3rem, 75.00rem - 50.00vw, 15rem);
+        right: clamp(30rem, 54.00rem - 16.67vw, 34rem);
     }
+
+
+ /* ===================
+   PRICING SECTION 
+=======================*/   
+
+    .pricing-section {
+        margin-top: 6rem;
+    }
+
+.pricing-inner{
+    padding-top: 0;
+    padding-bottom: 8rem; 
+}
+
+.bg-shape-pricing{
+    max-width: 150rem; 
+    top: clamp(-100rem, -10.00rem + -62.50vw, -85rem);
+}
+
+
+.pricing-title{
+    font-size:  clamp(4rem, 2.00rem + 1.67vw, 4.4rem); 
+}
+
+.pricing-subtitle{
+    font-size: clamp(2.4rem, 0.40rem + 1.67vw, 2.8rem);
+    max-width: clamp(60rem, 10.00rem + 41.67vw, 70rem);
+    padding: 0;
+    margin: 0 auto;
+}
+
+/* 1. Kill the artificial 300vh scroll height */
+    .pricing-scroll-track {
+        height: auto; 
+        margin-top: 6rem; 
+    }
+
+    /* 2. Un-stick the title group */
+    .pricing-sticky-group {
+        position: relative;
+        top: auto; 
+    }
+
+    /* 3. Transform the wrapper into a 1320px Flexbox Row */
+    .pricing-cards-stack {
+        position: relative;
+        top: auto;
+        
+        /* Spreads the cards up to 1320px max */
+        max-width: clamp(110rem, 0.00rem + 91.67vw, 132rem);
+        gap: clamp(0rem, 21.60rem - 15.00vw, 3.6rem);
+        width: 100%;
+        margin-inline: auto; /* Centers the whole row */
+        display: flex;
+        flex-direction: row; /* RTL layout: Card 1 on the Right, Card 3 on the Left */
+        justify-content: space-between;
+    }
+
+
+    /* 4. Reset the individual cards from their stacked Absolute layout */
+    .pricing-card {
+        position: relative; /* Kills the absolute stacking */
+        flex: 1; /* Forces all 3 cards to be exactly the same width */
+        
+        /* Override GSAP inline styles just as a safety net */
+        transform: none !important; 
+        filter: none !important;
+        opacity: 1 !important;
+    }
+
+    .pricing-card{
+        max-width: 38.6rem ;
+    }
+
+    .plan-desc,
+    .plan-includes-title,
+    .plan-features li,
+    .btn-plan
+    {
+        font-size: clamp(1.7rem, 1.20rem + 0.42vw, 1.8rem);
+    }
+
+    .plan-price{
+        font-size: clamp(3rem, 1.50rem + 1.25vw, 3.3rem);
+    }
+
+
+
 
 }

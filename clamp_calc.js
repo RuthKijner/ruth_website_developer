@@ -1,8 +1,8 @@
-const minSize = -10;
-const maxSize = -16;
+const minSize = 30;
+const maxSize = 33;
 
-const minScreenWidth = 768;
-const maxScreenWidth = 1024;
+const minScreenWidth = 1200;
+const maxScreenWidth = 1440;
 
 const growthRate = ((maxSize - minSize) / (maxScreenWidth - minScreenWidth))*100;
 const baseSize = minSize - (growthRate / 100 * minScreenWidth)
@@ -31,6 +31,17 @@ clamp(-40rem, -25.00rem + -19.53vw, -45rem);
 
 in css convert to 
 clamp(-45rem, -25.00rem + -19.53vw, -40rem);
+
+But if something like that comes up : clamp(-4rem, 11.00rem + -12.50vw, -7rem);
+The following should be done:
+
+const minSize = -450;
+const maxSize = -400;
+
+clamp(-45rem, -70.00rem + 20.83vw, -40rem);
+
+and use it as it is.
+===============================================
 
 
 Example #2
