@@ -581,7 +581,7 @@ h1 {
     display: none;
 }
 
-@media (min-height: 892px) {
+@media (min-height: 892px), (min-width: 1200px) and (max-height: 950px)  {
     .performance-bubble {
         display: block;
         border-radius: 0 1.2rem 1.2rem 1.2rem;
@@ -2333,7 +2333,7 @@ width: 100%;
 
     .service-card {
         /* Sits the cards perfectly under the centered title */
-        top: 38vh; /*32vh*/
+        top: 32vh; /*32vh*/
 
         /* ⚠️ THIS CONTROLS THE "LOCK" DURATION */
         /* 40vh means the user has to scroll exactly 40% of their screen height to trigger the next card.
@@ -2381,6 +2381,7 @@ width: 100%;
     }
 
     
+    
 /* =======================
     PORTFOLIO SECTION
 ==========================*/
@@ -2388,7 +2389,7 @@ width: 100%;
    /* Reveal the shapes */
     .shape-hex-behind-mockup,
     .shape-hex-edge { display: block; }
-    .portfolio-section {  margin-top: -18rem;}
+    .portfolio-section {  margin-top: -10rem;}
     .section-title { 
         font-size: clamp(4rem, 2.00rem + 1.67vw, 4.4rem); 
     }
@@ -2589,6 +2590,46 @@ width: 100%;
     .plan-price{
         font-size: clamp(3rem, 1.50rem + 1.25vw, 3.3rem);
     }
+
+}
+
+
+Adjusting for 
+
+
+    /* ========================
+    HERO SECTION & BUBBLES
+    ===========================*/
+
+      .hero-content {
+        margin-top: -32rem;
+      }
+
+      .hero-visual {
+        left:15%;
+        top: -38rem;
+      }
+
+    /* =======================
+        SERVICES Cards
+    ==========================*/
+       .services-section .container { 
+        margin-top:-8rem;
+       }
+
+    .sticky-header-wrapper {
+             top: 12vh;
+    }
+
+    .service-card {
+        padding-block:0;
+    }
+
+
+    .card-bg-shape{
+        top:24rem;
+    }
+
 
 
 

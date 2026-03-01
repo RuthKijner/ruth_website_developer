@@ -246,6 +246,48 @@ const cards = document.querySelectorAll('.service-card');
     }, { passive: true });
 
     
+
+/*
+ ## Keeping title and progress bar on thier places
+*/
+    const syncStickyExit = () => {
+    const titleWrapper = document.querySelector('.sticky-header-wrapper');
+    const finalCard = document.querySelector('.service-card:nth-of-type(4)');
+    
+    if (!titleWrapper || !finalCard) return;
+
+    let ticking = false; // Acts as a traffic light to prevent overload
+
+    const updatePosition = () => {
+        // 1. READ: Get the card's position
+        const cardRect = finalCard.getBoundingClientRect();
+        const stickyPoint = window.innerHeight * 0.32; // Matches your 32vh
+
+        // 2. WRITE: Apply the transform
+        if (cardRect.top < stickyPoint) {
+            const pushDistance = stickyPoint - cardRect.top;
+            titleWrapper.style.transform = `translateY(-${pushDistance}px)`;
+        } else {
+            titleWrapper.style.transform = 'translateY(0)';
+        }
+
+        // 3. Reset the traffic light after the frame is painted
+        ticking = false;
+    };
+
+    window.addEventListener('scroll', () => {
+        // If a frame is already queued up, ignore this scroll event
+        if (!ticking) {
+            window.requestAnimationFrame(updatePosition);
+            ticking = true;
+        }
+    }, { passive: true }); // passive: true tells the browser we won't block the scroll
+};
+
+syncStickyExit();
+
+
+
 /* 
 ############################################
   Portfolio mockups Animations
