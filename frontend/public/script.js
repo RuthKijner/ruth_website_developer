@@ -374,10 +374,9 @@ aboutShapes.forEach(shape => {
   Pricing Cards Animations
 ############################################
 */
-
-
-// 1. Register the plugin so GSAP knows to listen to the scrollbar
-gsap.registerPlugin(ScrollTrigger);
+window.addEventListener("load", (event) => {
+    // 1. Register the plugin
+    gsap.registerPlugin(ScrollTrigger);
 
 // 2. Create the GSAP Media Query logic
 let pricingMm = gsap.matchMedia();
@@ -385,67 +384,61 @@ pricingMm.add("(max-width: 1100px)", () => {
 
 // ==========================================
 // 2. Set the 3D Deck Initial States
-// (This handles the scaling, brightness, and positioning)
+// (Replacing filter with our CSS variable)
 // ==========================================
-gsap.set("#card-1", { y: "0rem", scale: 1, filter: "brightness(1)", transformOrigin: "center center" });
-gsap.set("#card-2", { y: "3.5rem", scale: 0.95, filter: "brightness(0.92)", transformOrigin: "bottom center" });
-gsap.set("#card-3", { y: "7rem", scale: 0.90, filter: "brightness(0.85)", transformOrigin: "bottom center" });
+gsap.set("#card-1", { y: "0rem", scale: 1, "--overlay-opacity": 0, transformOrigin: "center center", lazy: true });
+gsap.set("#card-2", { y: "3.5rem", scale: 0.95, "--overlay-opacity": 0.08, transformOrigin: "bottom center", lazy: true });
+gsap.set("#card-3", { y: "7rem", scale: 0.90, "--overlay-opacity": 0.15, transformOrigin: "bottom center", lazy: true });
 
 // ==========================================
-// 3. The Scroll Scrub Timeline
+// 3. The Scroll Scrub Timeline (SEO Safe)
 // ==========================================
 const tl = gsap.timeline({
     scrollTrigger: {
         trigger: ".pricing-scroll-track",
-        start: "top top", // Starts when the scroll track hits the top of the screen
-        end: "bottom bottom", // Ends when the track runs out
-        scrub: 0.8, // MAGIC FIX: '1' adds a 1-second smoothing delay. If they flick hard, it smoothly catches up!
+        start: "top top", 
+        end: "bottom bottom", 
+        scrub: 0.8 
     }
 });
 
-// --- PHASE 1: User scrolls -> Card 1 swipes up, Card 2 & 3 move forward ---
-// Note: We use the label "phase1" so all these movements happen at the exact same time
 // --- PHASE 1 ---
 tl.to("#card-1", { 
-    yPercent: -120,    
+    yPercent: -150,    // 👈 Increased from -120 to -150 to ensure it flies completely out of view
     rotation: -4,      
     ease: "power1.inOut", 
-    duration: 0.4 
+    duration: 0.4,
+    lazy: true 
 }, "phase1")
-// This line below handles the opacity separately
-.to("#card-1", { 
-    opacity: 0, 
-    duration: 0.1,    // A very fast fade
-    ease: "none" 
-}, "phase1+=0.3")     // 👈 This means: "Start 0.3 seconds into the 0.4 phase" (at the very end)
+// 🗑️ Removed the opacity: 0 block here!
 
 .to("#card-2", { 
-    y: "0rem", scale: 1, filter: "brightness(1)", 
-    duration: 0.4  
+    y: "0rem", scale: 1, "--overlay-opacity": 0, 
+    duration: 0.4,
+    lazy: true 
 }, "phase1")
 .to("#card-3", { 
-    y: "3.5rem", scale: 0.95, filter: "brightness(0.92)", 
-    duration: 0.4  
+    y: "3.5rem", scale: 0.95, "--overlay-opacity": 0.08, 
+    duration: 0.4,
+    lazy: true 
 }, "phase1");
 
 
 // --- PHASE 2 ---
 tl.to("#card-2", { 
-    yPercent: -120, rotation: 4, 
+    yPercent: -150,   // 👈 Increased here as well
+    rotation: 4, 
     ease: "power1.inOut", 
-    duration: 0.4 
+    duration: 0.4,
+    lazy: true 
 }, "phase2")
-.to("#card-2", { 
-    opacity: 0, 
-    duration: 0.1, 
-    ease: "none" 
-}, "phase2+=0.3")     // 👈 Starts the fade only when the card is nearly off-screen
+// 🗑️ Removed the opacity: 0 block here!
 
 .to("#card-3", { 
-    y: "0rem", scale: 1, filter: "brightness(1)", 
-    duration: 0.4  
+    y: "0rem", scale: 1, "--overlay-opacity": 0, 
+    duration: 0.4,
+    lazy: true 
 }, "phase2");
-
-
+ 
 });
-
+});

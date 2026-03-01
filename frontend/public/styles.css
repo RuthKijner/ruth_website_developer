@@ -1428,6 +1428,21 @@ position: relative;
     /* Prepares the GPU for the JavaScript animation */
     will-change: transform, opacity;
     transform-origin: center bottom;
+
+    --overlay-opacity: 0;
+}
+
+/* 2. Create the GPU-friendly dark overlay */
+.pricing-card::after {
+    content: "";
+    position: absolute;
+    inset: 0; /* Shorthand for top: 0, right: 0, bottom: 0, left: 0 */
+    background-color: #000;
+    border-radius: inherit; /* Copies the 2rem radius from the card */
+    opacity: var(--overlay-opacity); /* Controlled by GSAP */
+    pointer-events: none; /* Critical: Lets mouse clicks pass through to your buttons */
+    z-index: 10; /* Sits above your text and SVGs to dim everything */
+    will-change: opacity; /* Prepares the GPU for smooth animation */
 }
 
 
