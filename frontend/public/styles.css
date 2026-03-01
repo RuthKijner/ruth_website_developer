@@ -2144,6 +2144,8 @@ width: 100%;
     .hero-section {
         overflow-x: hidden; 
         padding-top: 0;
+
+
     }
 
     /* 2. The Locked 1440px Anchor Layer */
@@ -2153,13 +2155,14 @@ width: 100%;
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
-        min-height: clamp(76vh, calc(76vh + 50vw - 600px), 88vh); /*88vh*/
+        min-height: 64rem;
+        height: clamp(64rem, 80vh, 80rem);
     }
 
     .hero-content {
         width: 50%;
         text-align: right;
-        margin-top: -32rem;
+        margin-top: 0;/*-32*/
         margin-inline: 0;
         padding-right: clamp(2.4rem, -3.60rem + 5.00vw, 3.6rem);
         position: relative;
@@ -2196,9 +2199,9 @@ width: 100%;
 
     .hero-visual {
         position: absolute;
-        top: -32%; /* Pulls the image up under the header */
-        left: 16%;
+        top: -50%; /* -3 */
         transform: translateX(-50%);
+        left: 16%;
         width: clamp(97rem, 2.00rem + 79.17vw, 116rem);
         z-index: -3; 
         /* border: 2px dashed rgb(179, 0, 255); */
