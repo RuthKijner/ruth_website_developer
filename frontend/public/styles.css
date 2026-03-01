@@ -2410,7 +2410,8 @@ width: 100%;
     .shape-hex-bg {
         width: clamp(105rem, -20.00rem + 104.17vw, 130rem);
         left: clamp(-52rem, 8.00rem + -41.67vw, -42rem);
-        top:clamp(-50rem, 70.00rem + -83.33vw, -30rem);
+        top:clamp(-51rem, 75.00rem  - 87.50vw, -30rem);
+        /*clamp(-50rem, 70.00rem + -83.33vw, -30rem)*/
     }
 
     .shape-hex-outline {
@@ -2594,27 +2595,26 @@ width: 100%;
 }
 
 
-Adjusting for 
-
+@media (min-width: 1200px) and (max-height: 950px) {
 
     /* ========================
     HERO SECTION & BUBBLES
     ===========================*/
 
       .hero-content {
-        margin-top: -32rem;
+        margin-top: -32rem; /*-32*/
       }
 
       .hero-visual {
         left:15%;
-        top: -38rem;
+        top: clamp(-38rem, 4.00rem - 29.17vw, -31rem);
       }
 
     /* =======================
         SERVICES Cards
     ==========================*/
        .services-section .container { 
-        margin-top:-8rem;
+        margin-top:clamp(-24rem, -79.00rem + 45.83vw, -13rem);
        }
 
     .sticky-header-wrapper {
@@ -2632,6 +2632,33 @@ Adjusting for
 
 
 
+/* =======================
+    PORTFOLIO SECTION
+==========================*/
+  .portfolio-header{ margin-bottom: 4rem;  }
 
+
+
+  /* =======================
+   About Me Section
+==========================*/
+
+    .about-section{
+        margin-top: -26rem;
+    }
+
+    .about-img {
+        width: 100rem;
+        top: -36rem;
+    }
+
+    .shape-hex-top {
+    top: 20rem ;
+    right:clamp(30rem, -60.00rem + 75.00vw, 48rem);
+    }
+
+    .shape-hex-mid {
+    right: clamp(53rem, -32.00rem + 70.83vw, 70rem);
+    }
 
 }
