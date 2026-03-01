@@ -259,9 +259,12 @@ const cards = document.querySelectorAll('.service-card');
     let ticking = false; // Acts as a traffic light to prevent overload
 
     const updatePosition = () => {
-        // 1. READ: Get the card's position
+// 1. READ: Get the card's position
         const cardRect = finalCard.getBoundingClientRect();
-        const stickyPoint = window.innerHeight * 0.32; // Matches your 32vh
+        
+        // ⚠️ THE RESPONSIVE FIX: Dynamically read the 'top' value from your CSS!
+        // If it's desktop, it reads 380. If tablet, it reads 300. It adapts automatically!
+        const stickyPoint = parseInt(window.getComputedStyle(finalCard).top);
 
         // 2. WRITE: Apply the transform
         if (cardRect.top < stickyPoint) {
@@ -271,7 +274,7 @@ const cards = document.querySelectorAll('.service-card');
             titleWrapper.style.transform = 'translateY(0)';
         }
 
-        // 3. Reset the traffic light after the frame is painted
+        // 3. Reset the traffic light
         ticking = false;
     };
 

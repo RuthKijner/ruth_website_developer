@@ -108,6 +108,7 @@ p, a { font-size: var(--fs-p); }
     src: url('../assets/fonts/TelAviv-BrutalistBold.woff2') format('woff2');
     font-weight: bold; /* Tell the browser not to mess with the math */
     font-style: bold;
+    font-display: swap;
 }
 
 /* Heebo Fonts */
@@ -646,38 +647,22 @@ h1 {
     =======================
 */
 
-
-
 .services-section {
-padding-block: 1.7rem;
+    padding-block: 1.7rem;
     position: relative;
     overflow: visible;
-
-    /* border: 2px solid black; */
 }
 
-
-
-/* 1. The Wrapper is now the Sticky Boss */
+/* 1. The Wrapper: Clean and simple */
 .sticky-header-wrapper {
     position: sticky;
     position: -webkit-sticky;
 
-    top: 80px; /* The stopping point */
+    /* I converted your 80px to 8rem to keep your units consistent! */
+    top: 8rem; 
     z-index: 20;
     padding-block: 2.4rem;
-    
-    /* ⚠️ THE MAGIC FIX: */
-    /* This tells the browser: "This element effectively ends 80vh lower." */
-    /* Now, the footer hits the header's 'bottom' at the same time it hits the cards. */
-    margin-bottom: 80vh;
-}
 
-
-/* 2. The First Card: Pull it back up */
-/* Since the header now pushes everything down by 80vh, we must pull the cards back up. */
-.service-card:nth-of-type(1) {
-    margin-top: -80vh; /* Must match the header's margin-bottom exactly */
 }
 
 
@@ -750,12 +735,12 @@ padding-block: 1.7rem;
     text-align: center;
 
     padding-bottom:4.4rem;
+    /* Controls the scroll speed between mobile cards */
     margin-bottom: 6rem;
-    
 }
 
 .ghost-card {
-    height: 20vh; /* Approximate height of a card */
+    height: 10vh; /* Approximate height of a card */
     width: 100%;
     visibility: hidden; /* Invisible */
     pointer-events: none;
@@ -1692,8 +1677,20 @@ position: relative;
     /* =======================
         Services Section
     ==========================*/
+
     .services-section .container {  max-width: 1000px;  }
 
+    /* 1. Reset the Mobile Hacks & Position the Title */
+    .sticky-header-wrapper {
+        top: 10rem; /* Keeps the title safely above the 30rem cards */
+        margin-bottom: 0; /* Kills the mobile 80vh hack */
+        z-index: 10;
+    }
+
+    .service-card:nth-of-type(1) {
+        margin-top: 0; /* Kills the mobile -80vh hack */
+    }
+    
     .section-title{
         font-size: var(--fs-h2-tablet); 
         padding-bottom: 3.2rem;
