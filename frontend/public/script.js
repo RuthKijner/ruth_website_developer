@@ -71,6 +71,53 @@ if (heroBtn && navBtn) {
     observer.observe(heroBtn);
 }
 
+/* ############################################
+   Custom Modal Calendar Trigger (Multi-Button)
+############################################
+*/
+// 1. ⚠️ THE UPGRADE: Grab ALL buttons that should open the calendar using their IDs
+const ctaButtons = document.querySelectorAll('.js-open-calendar');
+
+const modal = document.getElementById('custom-booking-modal');
+const closeBtn = document.getElementById('close-booking-modal');
+const iframeContainer = document.getElementById('iframe-container');
+
+// The Google Inline Iframe URL
+const calendarUrl = "https://calendar.google.com/calendar/appointments/schedules/AcZssZ3WO3f6-Noht41fqVbzAO-8Lh4PxApM_GQEwcq1T5cVhRFCT7N7Hw9mtm_w1BZwZlFehDu-LQs9?gv=true";
+
+// Open Modal Logic
+const openModal = (e) => {
+    e.preventDefault(); 
+    
+    if (!iframeContainer.innerHTML) {
+        iframeContainer.innerHTML = `<iframe src="${calendarUrl}" style="border: 0; width: 100%; height: 100%;" frameborder="0"></iframe>`;
+    }
+    
+    modal.classList.add('is-open');
+    document.body.style.overflow = 'hidden'; 
+};
+
+// Close Modal Logic
+const closeModal = () => {
+    modal.classList.remove('is-open');
+    document.body.style.overflow = ''; 
+};
+
+// Event Listeners
+if (ctaButtons.length > 0 && modal && closeBtn) {
+    
+    // 2. ⚠️ THE UPGRADE: Loop through the list and attach the listener to EVERY button
+    ctaButtons.forEach(button => {
+        button.addEventListener('click', openModal);
+    });
+    
+    closeBtn.addEventListener('click', closeModal);
+    
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+    });
+}
+
 /* 
 ############################################
    Hero Section Animations
